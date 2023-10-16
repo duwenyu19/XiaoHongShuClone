@@ -1,5 +1,5 @@
 import React from 'react'
-//import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import MeNavigator from './src/navigators/MeNavigator'
 import { enableScreens } from 'react-native-screens'
@@ -13,6 +13,6 @@ const App: React.FC = () => {
   )
 }
 
-//const styles = StyleSheet.create({})
+const styles = StyleSheet.create({})
 
 export default App
