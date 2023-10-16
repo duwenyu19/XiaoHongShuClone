@@ -1,2 +1,26 @@
 1. set up stack navigator and bottom tab bar navigator
 2. add functional pages into MeNavigator, add navigation buttons to me page
+  
+  
+    Following
+    Followers
+    Likes
+
+    EditProfile
+    Setting
+       
+    UserCart（购物车）
+    Browse（创作灵感）
+    ViewedPosts（浏览记录）
+
+3. Consider moving Me and Home page into component as folders, 
+and add related pages to their folder
+
+
+
+
+
+
+
+make an in-page tab, for Posts, Tag, Collects, Likes
+add pressable component to Home, and onPress action
