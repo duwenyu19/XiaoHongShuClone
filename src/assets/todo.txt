@@ -1,0 +1,2 @@
+1. set up stack navigator and bottom tab bar navigator
+2. add functional pages into MeNavigator, add navigation buttons to me page

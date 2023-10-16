@@ -1,18 +1,13 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
-import MeNavigator from './src/navigators/MeNavigator'
-import { enableScreens } from 'react-native-screens'
-enableScreens()
+import TabNavigator from './src/navigators/TabNavigator'
 
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <MeNavigator />
+      <TabNavigator />
     </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({})
 
 export default App

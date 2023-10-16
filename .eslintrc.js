@@ -29,6 +29,6 @@ module.exports = {
     'array-element-newline': ['error',
 'always'],
     semi: ['error', 'never'],
-    'no-unused-vars': ['warn'],
+    //'no-unused-vars': ['warn'],
   },
 }

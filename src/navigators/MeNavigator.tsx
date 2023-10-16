@@ -6,7 +6,7 @@ const MeStack = createStackNavigator()
 
 const MeNavigator: React.FC = () => {
   return (
-    <MeStack.Navigator>
+    <MeStack.Navigator screenOptions={{ headerShown: false }}>
       <MeStack.Screen name="MePage" component={Me} />
     </MeStack.Navigator>
   )

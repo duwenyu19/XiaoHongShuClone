@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-const Me: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <View>
-      <Text>Me Page</Text>
+      <Text>Home Page</Text>
     </View>
   )
 }
 
-export default Me
+export default Home
