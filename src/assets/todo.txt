@@ -18,9 +18,16 @@ and add related pages to their folder
 
 
 
+add a swiping go back function to the stack screens
+
 
 
 
 
 make an in-page tab, for Posts, Tag, Collects, Likes
 add pressable component to Home, and onPress action
+
+
+后期：
+分享pop up
+头像侠加号记录日常页面

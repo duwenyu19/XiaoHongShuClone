@@ -18,6 +18,30 @@ const Me: React.FC<MeProps> = ({navigation}) => {
         title="Go to Browse" 
         onPress={() => navigation.navigate('Browse')}
       />
+      <Button 
+        title="Go to ViewedPosts" 
+        onPress={() => navigation.navigate('ViewedPosts')}
+      />
+      <Button 
+        title="Go to Following" 
+        onPress={() => navigation.navigate('Following')}
+      />
+      <Button 
+        title="Go to Followers" 
+        onPress={() => navigation.navigate('Followers')}
+      />
+      <Button 
+        title="Go to Likes" 
+        onPress={() => navigation.navigate('Likes')}
+      />
+      <Button 
+        title="Go to EditProfile" 
+        onPress={() => navigation.navigate('EditProfile')}
+      />
+      <Button 
+        title="Go to Setting" 
+        onPress={() => navigation.navigate('Setting')}
+      />
     </View>
   )
 }
