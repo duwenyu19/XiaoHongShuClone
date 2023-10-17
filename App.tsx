@@ -1,11 +1,11 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import TabNavigator from './src/navigators/TabNavigator'
+import BottomTabNavigator from './src/navigators/BottomTabNavigator'
 
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <TabNavigator />
+      <BottomTabNavigator />
     </NavigationContainer>
   )
 }

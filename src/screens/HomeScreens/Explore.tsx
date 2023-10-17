@@ -10,10 +10,10 @@ const Explore: React.FC<ExploreProps> = ({navigation}) => {
   return (
     <View>
       <Text>Explore Page</Text>
-      <Button 
+      {/* <Button 
         title="Back to Home" 
         onPress={() => navigation.goBack()}
-      />
+      /> */}
     </View>
   )
 }

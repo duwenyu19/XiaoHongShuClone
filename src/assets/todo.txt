@@ -1,6 +1,6 @@
-1. set up stack navigator and bottom tab bar navigator
-2. add functional pages into MeNavigator, add navigation buttons to me page
-  
+1. Set up stack navigator and bottom tab bar navigator (check)
+
+2. Add functional pages into MeNavigator, add navigation buttons to me page (check)
   
     Following
     Followers
@@ -12,11 +12,12 @@
     UserCart（购物车）
     Browse（创作灵感）
     ViewedPosts（浏览记录）
+3. Add functional pages into HomeNavigator, add buttons to home page (check)
 
-3. Consider moving Me and Home page into component as folders, 
-and add related pages to their folder
+4. Consider moving Me and Home page into component as folders, 
+and add related pages to their folder (check)
 
-4. Add Top navigation bar and three tab pages to Home, put them in a folder
+5. Add Top navigation bar and three tab pages to Home, put them in a folder (check)
 
 
 add a swiping go back function to the stack screens

@@ -4,18 +4,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomeStack from './HomeNavigator'
 import MeStack from './MeNavigator'
 
-const Tab = createBottomTabNavigator()
+const BottomTab = createBottomTabNavigator()
 
-const TabNavigator: React.FC = () => {
+const BottomTabNavigator: React.FC = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen 
+    <BottomTab.Navigator>
+      <BottomTab.Screen 
         name="Home"
         component={HomeStack}
       />
-      <Tab.Screen name="Me" component={MeStack} />
-    </Tab.Navigator>
+      <BottomTab.Screen name="Me" component={MeStack} />
+    </BottomTab.Navigator>
   )
 }
 
-export default TabNavigator
+export default BottomTabNavigator
