@@ -13,18 +13,6 @@ const Home: React.FC<HomeProps> = ({navigation}) => {
     <View style={styles.container}>
       <View style={styles.tabContainer}>
         <TopTabNavigator />
-        {/* <Button 
-          title="Go to Follow" 
-          onPress={() => navigation.navigate('Follow')}
-        />
-        <Button 
-          title="Go to Explore" 
-          onPress={() => navigation.navigate('Explore')}
-        />
-        <Button 
-          title="Go to Nearby" 
-          onPress={() => navigation.navigate('Nearby')}
-        /> */}
       </View>
     </View>
   )

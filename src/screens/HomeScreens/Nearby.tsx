@@ -10,10 +10,6 @@ const Nearby: React.FC<NearbyProps> = ({navigation}) => {
   return (
     <View>
       <Text>Nearby Page</Text>
-      {/* <Button 
-        title="Back to Home" 
-        onPress={() => navigation.goBack()}
-      /> */}
     </View>
   )
 }

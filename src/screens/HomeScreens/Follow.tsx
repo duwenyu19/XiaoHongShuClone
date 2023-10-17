@@ -10,10 +10,6 @@ const Follow: React.FC<FollowProps> = ({navigation}) => {
   return (
     <View>
       <Text>Follow Page</Text>
-      {/* <Button 
-        title="Back to Home" 
-        onPress={() => navigation.goBack()}
-      /> */}
     </View>
   )
 }
