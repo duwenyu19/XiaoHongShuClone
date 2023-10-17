@@ -8,6 +8,7 @@ const TopTab = createMaterialTopTabNavigator()
 const TobTabNavigator: React.FC = () => {
   return (
     <TopTab.Navigator
+      initialRouteName="Explore"
       screenOptions={{
         tabBarActiveTintColor: 'black',
         tabBarInactiveTintColor: 'black',
