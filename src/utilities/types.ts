@@ -1,8 +1,9 @@
-import { NavigationProp } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native'
 
 export type RootStackParamList = {
-  MePage: undefined;
-  UserCart: undefined;
+  MePage: undefined
+  UserCart: undefined
+  Browse: undefined
 };
 
-export type MeScreenNavigationProp = NavigationProp<RootStackParamList, 'MePage'>;
+export type MeScreenNavigationProp = NavigationProp<RootStackParamList, 'MePage'>

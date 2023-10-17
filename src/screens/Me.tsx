@@ -14,6 +14,10 @@ const Me: React.FC<MeProps> = ({navigation}) => {
         title="Go to UserCart" 
         onPress={() => navigation.navigate('UserCart')}
       />
+      <Button 
+        title="Go to Browse" 
+        onPress={() => navigation.navigate('Browse')}
+      />
     </View>
   )
 }
