@@ -1,6 +1,6 @@
 import { NavigationProp } from '@react-navigation/native'
 
-export type RootStackParamList = {
+export type MeStackParamList = {
   MePage: undefined
   UserCart: undefined
   Browse: undefined
@@ -12,4 +12,13 @@ export type RootStackParamList = {
   Setting: undefined
 };
 
-export type MeScreenNavigationProp = NavigationProp<RootStackParamList, 'MePage'>
+export type HomeStackParamList = {
+  HomePage: undefined
+  Follow: undefined
+  Explore: undefined
+  Nearby: undefined
+}
+
+export type MeScreenNavigationProp = NavigationProp<MeStackParamList, 'MePage'>
+
+export type HomeScreenNavigationProp = NavigationProp<HomeStackParamList, 'HomePage'>
