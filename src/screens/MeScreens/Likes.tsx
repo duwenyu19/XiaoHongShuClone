@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { MeScreenNavigationProp } from '../../utilities/types'
 
 type LikesProps = {
@@ -8,14 +8,18 @@ type LikesProps = {
 
 const Likes: React.FC<LikesProps> = ({navigation}) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Likes Page</Text>
-      <Button 
-        title="Back to Me" 
-        onPress={() => navigation.goBack()}
-      />
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
 
 export default Likes
