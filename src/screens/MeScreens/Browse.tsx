@@ -1,15 +1,15 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native'
-import { MeScreenNavigationProp } from '../utilities/types'
+import { MeScreenNavigationProp } from '../../utilities/types'
 
-type EditProfileProps = {
+type BrowseProps = {
   navigation: MeScreenNavigationProp;
 }
 
-const EditProfile: React.FC<EditProfileProps> = ({navigation}) => {
+const Browse: React.FC<BrowseProps> = ({navigation}) => {
   return (
     <View>
-      <Text>EditProile Page</Text>
+      <Text>Browse Page</Text>
       <Button 
         title="Back to Me" 
         onPress={() => navigation.goBack()}
@@ -18,4 +18,4 @@ const EditProfile: React.FC<EditProfileProps> = ({navigation}) => {
   )
 }
 
-export default EditProfile
+export default Browse

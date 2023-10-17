@@ -1,15 +1,15 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native'
-import { MeScreenNavigationProp } from '../utilities/types'
+import { MeScreenNavigationProp } from '../../utilities/types'
 
-type FollowersProps = {
+type ViewedPostsProps = {
   navigation: MeScreenNavigationProp;
 }
 
-const Followers: React.FC<FollowersProps> = ({navigation}) => {
+const ViewedPosts: React.FC<ViewedPostsProps> = ({navigation}) => {
   return (
     <View>
-      <Text>Followers Page</Text>
+      <Text>ViewedPosts Page</Text>
       <Button 
         title="Back to Me" 
         onPress={() => navigation.goBack()}
@@ -18,4 +18,4 @@ const Followers: React.FC<FollowersProps> = ({navigation}) => {
   )
 }
 
-export default Followers
+export default ViewedPosts

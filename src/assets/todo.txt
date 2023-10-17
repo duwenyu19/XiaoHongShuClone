@@ -16,12 +16,10 @@
 3. Consider moving Me and Home page into component as folders, 
 and add related pages to their folder
 
+4. Add Top navigation bar and three tab pages to Home, put them in a folder
 
 
 add a swiping go back function to the stack screens
-
-
-
 
 
 make an in-page tab, for Posts, Tag, Collects, Likes

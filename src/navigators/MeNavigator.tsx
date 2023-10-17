@@ -1,14 +1,14 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Me from '../screens/Me'
-import UserCart from '../screens/UserCart'
-import Browse from '../screens/Browse'
-import ViewedPosts from '../screens/ViewedPosts'
-import Following from '../screens/Following'
-import Followers from '../screens/Followers'
-import Likes from '../screens/Likes'
-import EditProfile from '../screens/EditProfile'
-import Setting from '../screens/Setting'
+import UserCart from '../screens/MeScreens/UserCart'
+import Browse from '../screens/MeScreens/Browse'
+import ViewedPosts from '../screens/MeScreens/ViewedPosts'
+import Following from '../screens/MeScreens/Following'
+import Followers from '../screens/MeScreens/Followers'
+import Likes from '../screens/MeScreens/Likes'
+import EditProfile from '../screens/MeScreens/EditProfile'
+import Setting from '../screens/MeScreens/Setting'
 
 const MeStack = createStackNavigator()
 

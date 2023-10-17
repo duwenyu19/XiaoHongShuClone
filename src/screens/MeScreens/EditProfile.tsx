@@ -1,15 +1,15 @@
 import React from 'react'
 import { View, Text, Button } from 'react-native'
-import { MeScreenNavigationProp } from '../utilities/types'
+import { MeScreenNavigationProp } from '../../utilities/types'
 
-type UserCartProps = {
+type EditProfileProps = {
   navigation: MeScreenNavigationProp;
 }
 
-const UserCart: React.FC<UserCartProps> = ({navigation}) => {
+const EditProfile: React.FC<EditProfileProps> = ({navigation}) => {
   return (
     <View>
-      <Text>UserCart Page</Text>
+      <Text>EditProile Page</Text>
       <Button 
         title="Back to Me" 
         onPress={() => navigation.goBack()}
@@ -18,4 +18,4 @@ const UserCart: React.FC<UserCartProps> = ({navigation}) => {
   )
 }
 
-export default UserCart
+export default EditProfile
