@@ -14,7 +14,11 @@ const MeStack = createStackNavigator()
 
 const MeNavigator: React.FC = () => {
   return (
-    <MeStack.Navigator>
+    <MeStack.Navigator
+      screenOptions={{
+        gestureEnabled: true
+      }}
+    >
       <MeStack.Screen name="MePage" component={Me} />
       <MeStack.Screen name="UserCart" component={UserCart} />
       <MeStack.Screen name="Browse" component={Browse} />
