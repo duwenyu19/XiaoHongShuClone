@@ -18,6 +18,8 @@ const MeTopTabNavigator: React.FC = () => {
           elevation: 0,
           shadowOpacity: 0,
           paddingTop: 10,
+          borderTopLeftRadius: 10,
+          borderTopRightRadius: 10,
         },
         tabBarIndicatorStyle: {
           backgroundColor: 'red',
@@ -25,6 +27,7 @@ const MeTopTabNavigator: React.FC = () => {
         },
         tabBarLabelStyle: {
           fontWeight: 'bold',
+          fontSize: 12,
         },
         tabBarAllowFontScaling: false,
       }}
