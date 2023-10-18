@@ -24,15 +24,13 @@ and add related pages to their folder (check)
 
 7. Make an in-page tab, for Posts, Tag, Collects, Likes
 
-8. Modify Bottom tab icon and name style
+8. Modify Bottom tab icon and name style (check)
 
 9. Add a scroll view for the following and followers page
 
 10. Add a profile page for Symba, add a navigation to it from Following
 
-
-
-add pressable component to Home, and onPress action
+11. Add actual posts to home, one for Symba, one for Money
 
 
 后期：
