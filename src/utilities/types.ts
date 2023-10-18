@@ -7,7 +7,7 @@ export type MeStackParamList = {
   浏览记录: undefined
   Following: undefined
   Followers: undefined
-  Likes: undefined
+  LikesAndCol: undefined
   EditProfile: undefined
   Settings: undefined
 };

@@ -2,14 +2,14 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { MeScreenNavigationProp } from '../../utilities/types'
 
-type LikesProps = {
+type LikesAndColProps = {
   navigation: MeScreenNavigationProp;
 }
 
-const Likes: React.FC<LikesProps> = ({navigation}) => {
+const LikesAndCol: React.FC<LikesAndColProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>Likes Page</Text>
+      <Text>Likes & Col Page</Text>
     </View>
   )
 }
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Likes
+export default LikesAndCol

@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native'
 import { MeScreenNavigationProp } from '../utilities/types'
+import MeTopTabNavigator from '../navigators/MeTopTabNavigator'
 import StackButton from '../components/StackButton'
 import RoundSqaureButton from '../components/RoundSquareButton'
 import userPortrait from '../assets/photos/user-portrait.jpg'
@@ -24,7 +25,7 @@ const Me: React.FC<MeProps> = ({navigation}) => {
         <View style={styles.statsContainer}>
           <StackButton number="1" label="Following" onPress={() => navigation.navigate('Following')} />
           <StackButton number="100000000" label="Followers" onPress={() => navigation.navigate('Followers')} />
-          <StackButton number="0" label="Likes & Col" onPress={() => navigation.navigate('Likes')} />
+          <StackButton number="0" label="Likes & Col" onPress={() => navigation.navigate('LikesAndCol')} />
           <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('EditProfile')}>
             <Text style={[{color: '#FFFFFF'},{fontWeight: 'bold'},{fontSize: 12}]}>Edit Profile</Text>
           </TouchableOpacity>
@@ -42,6 +43,10 @@ const Me: React.FC<MeProps> = ({navigation}) => {
           <RoundSqaureButton label="浏览记录" onPress={() => navigation.navigate('浏览记录')} />
         </View>
 
+        <View style={styles.topTabContainer}>
+          <MeTopTabNavigator/>
+        </View>
+        
       </ImageBackground>
     </View>
   )
@@ -110,6 +115,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: '#FFFFFF',
     marginRight: 5,
+  },
+  topTabContainer: {
+    flex: 1,
+    marginTop: 15,
   }
 });
 

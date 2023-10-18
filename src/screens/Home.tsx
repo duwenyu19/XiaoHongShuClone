@@ -1,7 +1,7 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet, ImageBackgroundComponent } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { HomeScreenNavigationProp } from '../utilities/types';
-import TopTabNavigator from '../navigators/TopTabNavigator'
+import HomeTopTabNavigator from '../navigators/HomeTopTabNavigator'
 
 type HomeProps = {
   navigation: HomeScreenNavigationProp;
@@ -12,7 +12,7 @@ const Home: React.FC<HomeProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.tabContainer}>
-        <TopTabNavigator />
+        <HomeTopTabNavigator />
       </View>
     </View>
   )

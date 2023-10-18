@@ -6,7 +6,7 @@ import Browse from '../screens/MeScreens/Browse'
 import History from '../screens/MeScreens/History'
 import Following from '../screens/MeScreens/Following'
 import Followers from '../screens/MeScreens/Followers'
-import Likes from '../screens/MeScreens/Likes'
+import LikesAndCol from '../screens/MeScreens/LikesAndCol'
 import EditProfile from '../screens/MeScreens/EditProfile'
 import Setting from '../screens/MeScreens/Setting'
 
@@ -26,7 +26,7 @@ const MeNavigator: React.FC = () => {
       <MeStack.Screen name="浏览记录" component={History} />
       <MeStack.Screen name="Following" component={Following} />
       <MeStack.Screen name="Followers" component={Followers} />
-      <MeStack.Screen name="Likes" component={Likes} />
+      <MeStack.Screen name="LikesAndCol" component={LikesAndCol} />
       <MeStack.Screen name="EditProfile" component={EditProfile} />
       <MeStack.Screen name="Settings" component={Setting} />
     </MeStack.Navigator>
