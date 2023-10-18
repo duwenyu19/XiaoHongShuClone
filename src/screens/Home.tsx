@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
   tabContainer: {
     flex: 1,
-    marginTop: 20,
+    marginTop: 10,
     backgroundColor: 'white'
   }
 });

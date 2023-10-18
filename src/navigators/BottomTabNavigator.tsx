@@ -9,7 +9,7 @@ const BottomTab = createBottomTabNavigator()
 const BottomTabNavigator: React.FC = () => {
   return (
     <BottomTab.Navigator screenOptions={{ headerShown: false }}>
-      <BottomTab.Screen 
+      <BottomTab.Screen
         name="Home"
         component={HomeStack}
       />
