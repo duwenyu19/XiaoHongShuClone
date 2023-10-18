@@ -3,6 +3,7 @@ import { View, Text, Button, StyleSheet, TouchableOpacity, Image } from 'react-n
 import { MeScreenNavigationProp } from '../utilities/types'
 import userPortrait from '../assets/photos/user-portrait.jpg'
 import settingIcon from '../assets/photos/setting.png'
+import StackButton from '../components/StackButton'
 
 type MeProps = {
   navigation: MeScreenNavigationProp;
@@ -17,18 +18,9 @@ const Me: React.FC<MeProps> = ({navigation}) => {
       </View>
 
       <View style={styles.statsContainer}>
-        <TouchableOpacity style={styles.statButton} onPress={() => navigation.navigate('Following')}>
-          <Text>1</Text>
-          <Text>Following</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.statButton} onPress={() => navigation.navigate('Followers')}>
-          <Text>3</Text>
-          <Text>Followers</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.statButton} onPress={() => navigation.navigate('Likes')}>
-          <Text>0</Text>
-          <Text>Likes</Text>
-        </TouchableOpacity>
+        <StackButton number="1" label="Following" onPress={() => navigation.navigate('Following')} />
+        <StackButton number="3" label="Followers" onPress={() => navigation.navigate('Followers')} />
+        <StackButton number="0" label="Likes & Col" onPress={() => navigation.navigate('Likes')} />
         <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('EditProfile')}>
           <Text>编辑资料</Text>
         </TouchableOpacity>
@@ -42,13 +34,13 @@ const Me: React.FC<MeProps> = ({navigation}) => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.rectButton} onPress={() => navigation.navigate('UserCart')}>
-          <Text>UserCart</Text>
+          <Text>购物车</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.rectButton} onPress={() => navigation.navigate('Browse')}>
-          <Text>Browse</Text>
+          <Text>创作灵感</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.rectButton} onPress={() => navigation.navigate('History')}>
-          <Text>History</Text>
+          <Text>浏览记录</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -81,16 +73,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
   },
-  statButton: {
-    flex: 1,
-    alignItems: 'center',
-    paddingVertical: 3,
-    paddingHorizontal: 5,
-  },
-  statText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
   settingIcon: {
     width: 24,
     height: 24,
@@ -119,8 +101,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: '#FFFFFF',
     marginRight: 10,
+    marginLeft: 5,
     paddingVertical: 5,
-    paddingHorizontal: 15,
+    paddingHorizontal: 5,
   },
   settingButton: {
     width: 42,
