@@ -2,14 +2,14 @@ import { NavigationProp } from '@react-navigation/native'
 
 export type MeStackParamList = {
   MePage: undefined
-  UserCart: undefined
+  购物车: undefined
   创作灵感: undefined
-  History: undefined
+  浏览记录: undefined
   Following: undefined
   Followers: undefined
   Likes: undefined
   EditProfile: undefined
-  Setting: undefined
+  Settings: undefined
 };
 
 export type HomeStackParamList = {

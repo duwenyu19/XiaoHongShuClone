@@ -9,7 +9,11 @@ const HomeStack = createStackNavigator()
 
 const HomeNavigator: React.FC = () => {
   return (
-    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+    <HomeStack.Navigator 
+      screenOptions={{ 
+        headerShown: false,
+      }}
+    >
       <HomeStack.Screen name="HomePage" component={Home} />
       <HomeStack.Screen name="Follow" component={Follow} />
       <HomeStack.Screen name="Explore" component={Explore} />
