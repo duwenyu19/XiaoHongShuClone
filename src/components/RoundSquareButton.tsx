@@ -9,7 +9,7 @@ interface RoundSqaureButtonProps {
 const RoundSqaureButton: React.FC<RoundSqaureButtonProps> = ({label, onPress }) => {
   return (
     <TouchableOpacity style={styles.rectButton} onPress={onPress}>
-        <Text style={{color: '#FFFFFF'}} >{label}</Text>
+        <Text style={styles.text} >{label}</Text>
     </TouchableOpacity>
   )
 }
@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         marginVertical: 0,
     },
+    text: {
+        fontWeight: 'bold',
+        color: '#FFFFFF'
+    }
 })
 
 export default RoundSqaureButton

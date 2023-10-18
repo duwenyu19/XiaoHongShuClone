@@ -26,7 +26,7 @@ const Me: React.FC<MeProps> = ({navigation}) => {
           <StackButton number="100000000" label="Followers" onPress={() => navigation.navigate('Followers')} />
           <StackButton number="0" label="Likes & Col" onPress={() => navigation.navigate('Likes')} />
           <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('EditProfile')}>
-            <Text style={{color: '#FFFFFF'}}>Edit Profile</Text>
+            <Text style={[{color: '#FFFFFF'},{fontWeight: 'bold'},{fontSize: 12}]}>Edit Profile</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.settingButton} onPress={() => navigation.navigate('Settings')}>
             <Image 

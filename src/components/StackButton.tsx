@@ -21,12 +21,12 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         paddingVertical: 3,
-      },
-      statText: {
+    },
+        statText: {
         fontSize: 10,
         fontWeight: 'bold',
         color: '#FFFFFF',
-      },
+    },
 })
 
 export default StackButton

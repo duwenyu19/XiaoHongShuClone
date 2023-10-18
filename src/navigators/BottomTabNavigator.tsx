@@ -1,8 +1,10 @@
 import React from 'react'
+import { Image } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomeStack from './HomeNavigator'
 import MeStack from './MeNavigator'
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import meIcon from '../assets/photos/user-icon.png'
+import homeIcon from '../assets/photos/home-icon.png'
 
 
 const BottomTab = createBottomTabNavigator()
@@ -18,6 +20,10 @@ const BottomTabNavigator: React.FC = () => {
           backgroundColor: '#4A4A4A',
           paddingTop: 3,
           paddingBottom: 3,
+        },
+        tabBarLabelStyle: {
+          fontWeight: 'bold',
+          fontSize: 12,
         }
       }}
     >
@@ -27,7 +33,7 @@ const BottomTabNavigator: React.FC = () => {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" color={color} size={size} />
+            <Image source={homeIcon} style={{ width: size, height: size, tintColor: color }} />
           ),
         }}
       />
@@ -37,7 +43,7 @@ const BottomTabNavigator: React.FC = () => {
         options={{
           tabBarLabel: 'Me',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person-outline" color={color} size={size} />
+            <Image source={meIcon} style={{ width: size, height: size, tintColor: color }} />
           ),
         }}
       />
