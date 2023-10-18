@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, StyleSheet } from 'react-native'
 import { HomeScreenNavigationProp } from '../../utilities/types'
 
 type FollowProps = {
@@ -8,10 +8,17 @@ type FollowProps = {
 
 const Follow: React.FC<FollowProps> = ({navigation}) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Follow Page</Text>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'white'
+    }
+})
 
 export default Follow

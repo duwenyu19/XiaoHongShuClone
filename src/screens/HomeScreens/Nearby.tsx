@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { HomeScreenNavigationProp } from '../../utilities/types'
 
 type NearbyProps = {
@@ -8,10 +8,17 @@ type NearbyProps = {
 
 const Nearby: React.FC<NearbyProps> = ({navigation}) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Nearby Page</Text>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'white'
+    }
+})
 
 export default Nearby

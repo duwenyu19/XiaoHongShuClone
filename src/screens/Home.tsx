@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, Button, StyleSheet, ImageBackgroundComponent } from 'react-native'
 import { HomeScreenNavigationProp } from '../utilities/types';
 import TopTabNavigator from '../navigators/TopTabNavigator'
 
@@ -21,9 +21,12 @@ const Home: React.FC<HomeProps> = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white'
   },
   tabContainer: {
-    height: 300,
+    flex: 1,
+    marginTop: 20,
+    backgroundColor: 'white'
   }
 });
 

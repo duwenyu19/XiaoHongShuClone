@@ -4,9 +4,9 @@ import BottomTabNavigator from './src/navigators/BottomTabNavigator'
 
 const App: React.FC = () => {
   return (
-    <NavigationContainer>
-      <BottomTabNavigator />
-    </NavigationContainer>
+      <NavigationContainer>
+        <BottomTabNavigator />
+      </NavigationContainer>
   )
 }
 
