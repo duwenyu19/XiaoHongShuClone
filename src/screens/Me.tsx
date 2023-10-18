@@ -1,9 +1,11 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native'
 import { MeScreenNavigationProp } from '../utilities/types'
+import StackButton from '../components/StackButton'
+import RoundSqaureButton from '../components/RoundSquareButton'
 import userPortrait from '../assets/photos/user-portrait.jpg'
 import settingIcon from '../assets/photos/setting.png'
-import StackButton from '../components/StackButton'
+import backgroundImage from '../assets/photos/user-background-1.png'
 
 type MeProps = {
   navigation: MeScreenNavigationProp;
@@ -12,37 +14,35 @@ type MeProps = {
 const Me: React.FC<MeProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <Image style={styles.profileImage} source={userPortrait} />
-        <Text style={styles.profileName}>dwy</Text>
-      </View>
+      <ImageBackground source={backgroundImage} style={styles.backgroundContainer}>
+        
+        <View style={styles.headerContainer}>
+          <Image style={styles.profileImage} source={userPortrait} />
+          <Text style={styles.profileName}>Money</Text>
+        </View>
 
-      <View style={styles.statsContainer}>
-        <StackButton number="1" label="Following" onPress={() => navigation.navigate('Following')} />
-        <StackButton number="3" label="Followers" onPress={() => navigation.navigate('Followers')} />
-        <StackButton number="0" label="Likes & Col" onPress={() => navigation.navigate('Likes')} />
-        <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('EditProfile')}>
-          <Text>编辑资料</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.settingButton} onPress={() => navigation.navigate('Setting')}>
-          <Image 
-            source={settingIcon} 
-            style={styles.settingIcon}
-          />
-        </TouchableOpacity>
-      </View>
+        <View style={styles.statsContainer}>
+          <StackButton number="1" label="Following" onPress={() => navigation.navigate('Following')} />
+          <StackButton number="100000000" label="Followers" onPress={() => navigation.navigate('Followers')} />
+          <StackButton number="0" label="Likes & Col" onPress={() => navigation.navigate('Likes')} />
+          <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('EditProfile')}>
+            <Text style={{color: '#FFFFFF'}}>Edit Profile</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.settingButton} onPress={() => navigation.navigate('Setting')}>
+            <Image 
+              source={settingIcon} 
+              style={styles.settingIcon}
+            />
+          </TouchableOpacity>
+        </View>
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.rectButton} onPress={() => navigation.navigate('UserCart')}>
-          <Text>购物车</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.rectButton} onPress={() => navigation.navigate('Browse')}>
-          <Text>创作灵感</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.rectButton} onPress={() => navigation.navigate('History')}>
-          <Text>浏览记录</Text>
-        </TouchableOpacity>
-      </View>
+        <View style={styles.buttonContainer}>
+          <RoundSqaureButton label="购物车" onPress={() => navigation.navigate('UserCart')} />
+          <RoundSqaureButton label="创作灵感" onPress={() => navigation.navigate('Browse')} />
+          <RoundSqaureButton label="浏览记录" onPress={() => navigation.navigate('History')} />
+        </View>
+
+      </ImageBackground>
     </View>
   )
 }
@@ -51,6 +51,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#EDEDED',
+  },
+  backgroundContainer: {
+    flex: 1,
+    width: null,
+    height: null,
   },
   headerContainer: {
     flexDirection: 'row',
@@ -66,6 +71,7 @@ const styles = StyleSheet.create({
   profileName: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#FFFFFF',
   },
   statsContainer: {
     flexDirection: 'row',
@@ -74,24 +80,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   settingIcon: {
-    width: 24,
-    height: 24,
+    width:16,
+    height: 16,
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 5,
-  },
-  rectButton: {
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 8,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginHorizontal: 5,
-    marginVertical: 0,
   },
   editProfileButton: {
     flex: 1,

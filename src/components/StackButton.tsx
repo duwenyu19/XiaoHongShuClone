@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
       statText: {
         fontSize: 10,
         fontWeight: 'bold',
+        color: '#FFFFFF',
       },
 })
 
