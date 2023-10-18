@@ -16,6 +16,7 @@ const TobTabNavigator: React.FC = () => {
           backgroundColor: 'white',
           elevation: 0,
           shadowOpacity: 0,
+          paddingTop: 10,
         },
         tabBarIndicatorStyle: {
           backgroundColor: 'red',
