@@ -21,6 +21,8 @@ const TobTabNavigator: React.FC = () => {
         tabBarIndicatorStyle: {
           backgroundColor: 'red',
           height: 2,
+          width: '10%',
+          left: '11.8%',
         },
         tabBarLabelStyle: {
           fontWeight: 'bold',

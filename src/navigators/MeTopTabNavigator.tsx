@@ -23,7 +23,10 @@ const MeTopTabNavigator: React.FC = () => {
         },
         tabBarIndicatorStyle: {
           backgroundColor: 'red',
-          height: 2,
+          height: 4,
+          width: '10%',
+          left: '7.7%',
+          alignSelf: 'center',
         },
         tabBarLabelStyle: {
           fontWeight: 'bold',
