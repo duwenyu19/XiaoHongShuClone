@@ -4,7 +4,7 @@ export type MeStackParamList = {
   MePage: undefined
   UserCart: undefined
   Browse: undefined
-  ViewedPosts: undefined
+  History: undefined
   Following: undefined
   Followers: undefined
   Likes: undefined

@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Me from '../screens/Me'
 import UserCart from '../screens/MeScreens/UserCart'
 import Browse from '../screens/MeScreens/Browse'
-import ViewedPosts from '../screens/MeScreens/ViewedPosts'
+import History from '../screens/MeScreens/History'
 import Following from '../screens/MeScreens/Following'
 import Followers from '../screens/MeScreens/Followers'
 import Likes from '../screens/MeScreens/Likes'
@@ -22,7 +22,7 @@ const MeNavigator: React.FC = () => {
       <MeStack.Screen name="MePage" component={Me} />
       <MeStack.Screen name="UserCart" component={UserCart} />
       <MeStack.Screen name="Browse" component={Browse} />
-      <MeStack.Screen name="ViewedPosts" component={ViewedPosts} />
+      <MeStack.Screen name="History" component={History} />
       <MeStack.Screen name="Following" component={Following} />
       <MeStack.Screen name="Followers" component={Followers} />
       <MeStack.Screen name="Likes" component={Likes} />

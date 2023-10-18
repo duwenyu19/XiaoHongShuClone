@@ -19,11 +19,10 @@ and add related pages to their folder (check)
 
 5. Add Top navigation bar and three tab pages to Home, put them in a folder (check)
 
+6. Add a swiping-to-go-back function to the stack screens (check)
 
-add a swiping go back function to the stack screens
+7. Make an in-page tab, for Posts, Tag, Collects, Likes
 
-
-make an in-page tab, for Posts, Tag, Collects, Likes
 add pressable component to Home, and onPress action
 
 
