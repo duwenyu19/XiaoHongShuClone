@@ -28,7 +28,7 @@ const Me: React.FC<MeProps> = ({navigation}) => {
           <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('EditProfile')}>
             <Text style={{color: '#FFFFFF'}}>Edit Profile</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.settingButton} onPress={() => navigation.navigate('Setting')}>
+          <TouchableOpacity style={styles.settingButton} onPress={() => navigation.navigate('Settings')}>
             <Image 
               source={settingIcon} 
               style={styles.settingIcon}
@@ -37,9 +37,9 @@ const Me: React.FC<MeProps> = ({navigation}) => {
         </View>
 
         <View style={styles.buttonContainer}>
-          <RoundSqaureButton label="购物车" onPress={() => navigation.navigate('UserCart')} />
-          <RoundSqaureButton label="创作灵感" onPress={() => navigation.navigate('Browse')} />
-          <RoundSqaureButton label="浏览记录" onPress={() => navigation.navigate('History')} />
+          <RoundSqaureButton label="购物车" onPress={() => navigation.navigate('购物车')} />
+          <RoundSqaureButton label="创作灵感" onPress={() => navigation.navigate('创作灵感')} />
+          <RoundSqaureButton label="浏览记录" onPress={() => navigation.navigate('浏览记录')} />
         </View>
 
       </ImageBackground>
@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: null,
     height: null,
+    paddingTop: 30,
   },
   headerContainer: {
     flexDirection: 'row',

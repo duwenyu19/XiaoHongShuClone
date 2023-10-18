@@ -3,7 +3,7 @@ import { NavigationProp } from '@react-navigation/native'
 export type MeStackParamList = {
   MePage: undefined
   UserCart: undefined
-  Browse: undefined
+  创作灵感: undefined
   History: undefined
   Following: undefined
   Followers: undefined

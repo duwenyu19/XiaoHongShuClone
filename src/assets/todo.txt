@@ -12,6 +12,7 @@
     UserCart（购物车）
     Browse（创作灵感）
     ViewedPosts（浏览记录）
+
 3. Add functional pages into HomeNavigator, add buttons to home page (check)
 
 4. Consider moving Me and Home page into component as folders, 
@@ -22,6 +23,14 @@ and add related pages to their folder (check)
 6. Add a swiping-to-go-back function to the stack screens (check)
 
 7. Make an in-page tab, for Posts, Tag, Collects, Likes
+
+8. Modify Bottom tab icon and name style
+
+9. Add a scroll view for the following and followers page
+
+10. Add a profile page for Symba, add a navigation to it from Following
+
+
 
 add pressable component to Home, and onPress action
 

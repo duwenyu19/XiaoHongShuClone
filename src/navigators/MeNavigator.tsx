@@ -16,18 +16,19 @@ const MeNavigator: React.FC = () => {
   return (
     <MeStack.Navigator
       screenOptions={{
-        gestureEnabled: true
+        gestureEnabled: true,
+        
       }}
     >
-      <MeStack.Screen name="MePage" component={Me} />
-      <MeStack.Screen name="UserCart" component={UserCart} />
-      <MeStack.Screen name="Browse" component={Browse} />
-      <MeStack.Screen name="History" component={History} />
+      <MeStack.Screen name="MePage" component={Me} options={{headerShown: false,}}/>
+      <MeStack.Screen name="购物车" component={UserCart} />
+      <MeStack.Screen name="创作灵感" component={Browse} />
+      <MeStack.Screen name="浏览记录" component={History} />
       <MeStack.Screen name="Following" component={Following} />
       <MeStack.Screen name="Followers" component={Followers} />
       <MeStack.Screen name="Likes" component={Likes} />
       <MeStack.Screen name="EditProfile" component={EditProfile} />
-      <MeStack.Screen name="Setting" component={Setting} />
+      <MeStack.Screen name="Settings" component={Setting} />
     </MeStack.Navigator>
   )
 }

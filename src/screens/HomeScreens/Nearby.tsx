@@ -16,8 +16,10 @@ const Nearby: React.FC<NearbyProps> = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: 'white'
+      flex: 1,
+      backgroundColor: 'white',
+      justifyContent: 'center',
+      alignItems: 'center'
     }
 })
 
