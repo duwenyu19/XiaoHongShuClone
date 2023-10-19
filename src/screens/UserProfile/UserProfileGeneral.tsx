@@ -3,14 +3,21 @@ import { View, Text, StyleSheet, Image } from 'react-native'
 import { usersData } from '../../utilities/userData'
 import { RouteProp, NavigationProp } from '@react-navigation/native'
 import { MeStackParamList } from '../../utilities/types'
+import { UserProfileGeneralNavigationProp } from '../../utilities/types'
 
-type UserProfileGeneralRouteProp = RouteProp<MeStackParamList, 'UserProfileGeneral'>
-type UserProfileGeneralNavigationProp = NavigationProp<MeStackParamList, 'UserProfileGeneral'>
+// type UserProfileGeneralRouteProp = RouteProp<MeStackParamList, 'UserProfileGeneral'>
+// type UserProfileGeneralNavigationProp = NavigationProp<MeStackParamList, 'UserProfileGeneral'>
 
-interface UserProfileGeneralProps {
-  route: UserProfileGeneralRouteProp
-  navigation: UserProfileGeneralNavigationProp
+// interface UserProfileGeneralProps {
+//   route: UserProfileGeneralRouteProp
+//   navigation: UserProfileGeneralNavigationProp
+// }
+
+type UserProfileGeneralProps = {
+  navigation: UserProfileGeneralNavigationProp;
+  route: RouteProp<MeStackParamList, 'UserProfileGeneral'>;
 }
+
 
 const UserProfileGeneral: React.FC<any> = ({ route }) => {
   const { userId } = route.params

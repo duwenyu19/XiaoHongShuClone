@@ -1,9 +1,15 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import { usersData } from '../../utilities/userData'
 import { UserProfileGeneralNavigationProp } from '../../utilities/types'
 import UserContext from '../../utilities/UserContext'
 
+type UserData = {
+    id: string
+    name: string
+    description: string
+    image: any
+}
 
 type FollowingProps = {
   navigation: UserProfileGeneralNavigationProp
@@ -12,22 +18,38 @@ type FollowingProps = {
 const Following: React.FC<FollowingProps> = ({navigation}) => {
     
     const { setUserCount } = useContext(UserContext)
+    const [searchText, setSearchText] = useState('')
+    const [filteredUsers, setFilteredUsers] = useState(Object.values(usersData))
 
     useEffect(() => {
         setUserCount(Object.keys(usersData).length)
     }, [])
+
+    useEffect(() => {
+        if (searchText.trim() === '') {
+            setFilteredUsers(Object.values(usersData));
+        } else {
+            const filtered = Object.values(usersData).filter(user =>
+                user.name.toLowerCase().includes(searchText.toLowerCase())
+            );
+            setFilteredUsers(filtered);
+        }
+    }, [searchText])
 
     return (
         <View style={styles.container}>
             <View style={styles.searchBar}>
                 <TextInput
                     style={styles.searchInput}
-                    placeholder="search people you follow"
+                    placeholder="search"
+                    placeholderTextColor="white"
+                    value={searchText}
+                    onChangeText={setSearchText}
                 />
             </View>
 
             <FlatList 
-                data={Object.values(usersData)}
+                data={filteredUsers}
                 renderItem={({item}) => (
                     <TouchableOpacity 
                         style={styles.userCard}
