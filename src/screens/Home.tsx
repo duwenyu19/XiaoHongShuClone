@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { HomeScreenNavigationProp } from '../utilities/types';
+import { HomeScreenNavigationProp } from '../utilities/types'
 import HomeTopTabNavigator from '../navigators/HomeTopTabNavigator'
 
 type HomeProps = {
-  navigation: HomeScreenNavigationProp;
+  navigation: HomeScreenNavigationProp
 }
 
 
@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: 'white'
   }
-});
+})
 
 export default Home

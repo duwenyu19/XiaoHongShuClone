@@ -10,11 +10,11 @@ import settingIcon from '../assets/photos/setting.png'
 import backgroundImage from '../assets/photos/user-background-1.png'
 
 type MeProps = {
-  navigation: MeScreenNavigationProp;
+  navigation: MeScreenNavigationProp
 }
 
 const Me: React.FC<MeProps> = ({navigation}) => {
-  const { userCount } = useContext(UserContext);
+  const { userCount } = useContext(UserContext)
 
   return (
     <View style={styles.container}>
@@ -123,6 +123,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 15,
   }
-});
+})
 
 export default Me

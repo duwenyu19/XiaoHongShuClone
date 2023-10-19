@@ -1,9 +1,9 @@
 type UserData = {
-    id: string;
-    name: string;
-    description: string;
-    image: any;
-  };
+    id: string
+    name: string
+    description: string
+    image: any
+  }
   
 export const usersData: Record<string,UserData> = {
     '1': {
@@ -36,5 +36,5 @@ export const usersData: Record<string,UserData> = {
       description: '程序员，技术博主...',
       image: require('../assets/photos/user-portrait-6.jpg')
     },
-  };
+  }
   

@@ -1,23 +1,21 @@
-import React, {useContext, useEffect} from 'react';
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native';
-import { usersData } from '../../utilities/userData';
-import { UserProfileGeneralNavigationProp } from '../../utilities/types';
-import UserContext from '../../utilities/UserContext';
+import React, {useContext, useEffect} from 'react'
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
+import { usersData } from '../../utilities/userData'
+import { UserProfileGeneralNavigationProp } from '../../utilities/types'
+import UserContext from '../../utilities/UserContext'
 
 
 type FollowingProps = {
   navigation: UserProfileGeneralNavigationProp
-};
+}
 
 const Following: React.FC<FollowingProps> = ({navigation}) => {
     
     const { setUserCount } = useContext(UserContext)
 
     useEffect(() => {
-        setUserCount(Object.keys(usersData).length);
-    }, []);
-    
-
+        setUserCount(Object.keys(usersData).length)
+    }, [])
 
     return (
         <View style={styles.container}>
@@ -48,8 +46,8 @@ const Following: React.FC<FollowingProps> = ({navigation}) => {
                 keyExtractor={item => item.id}
             />
         </View>
-    );
-};
+    )
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -86,6 +84,6 @@ const styles = StyleSheet.create({
         color: 'gray',
         fontSize: 14,
     },
-});
+})
 
-export default Following;
+export default Following

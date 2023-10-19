@@ -5,11 +5,9 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { StyleSheet } from 'react-native'
 import UserContext from './src/utilities/UserContext'
 
-
-
 const App: React.FC = () => {
-
   const [userCount, setUserCount] = useState(0);
+  
   return (
     <UserContext.Provider value={{ userCount, setUserCount }}>
       <SafeAreaView style={styles.container}>

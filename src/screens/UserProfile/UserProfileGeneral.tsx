@@ -1,22 +1,21 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { usersData } from '../../utilities/userData';
-import { RouteProp, NavigationProp } from '@react-navigation/native';
-import { MeStackParamList } from '../../utilities/types';
-import { UserProfileGeneralNavigationProp } from '../../utilities/types';
+import React from 'react'
+import { View, Text, StyleSheet, Image } from 'react-native'
+import { usersData } from '../../utilities/userData'
+import { RouteProp, NavigationProp } from '@react-navigation/native'
+import { MeStackParamList } from '../../utilities/types'
 
-type UserProfileGeneralProps = {
-  // userId: string;
-  route: RouteProp<MeStackParamList, 'UserProfileGeneral'>;
+type UserProfileGeneralRouteProp = RouteProp<MeStackParamList, 'UserProfileGeneral'>
+type UserProfileGeneralNavigationProp = NavigationProp<MeStackParamList, 'UserProfileGeneral'>
+
+interface UserProfileGeneralProps {
+  route: UserProfileGeneralRouteProp
   navigation: UserProfileGeneralNavigationProp
 }
 
-  
+const UserProfileGeneral: React.FC<any> = ({ route }) => {
+  const { userId } = route.params
 
-const UserProfileGeneral: React.FC<UserProfileGeneralProps> = ({ route }) => {
-  const { userId } = route.params;
-
-  const user = usersData[userId];
+  const user = usersData[userId]
 
   if (!user) {
     return (
