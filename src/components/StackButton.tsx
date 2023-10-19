@@ -21,9 +21,10 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         paddingVertical: 3,
+        marginHorizontal: -5,
     },
         statText: {
-        fontSize: 10,
+        fontSize: 11,
         fontWeight: 'bold',
         color: '#FFFFFF',
     },
