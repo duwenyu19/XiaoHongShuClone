@@ -1,17 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  TouchableOpacity, 
-  Image, 
-  ImageBackground,  
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  ImageBackground,
+  TextInput,
 } from 'react-native'
 import { MeScreenNavigationProp } from '../utilities/types'
 import MeTopTabNavigator from '../navigators/MeTopTabNavigator'
 import StackButton from '../components/StackButton'
 import RoundSqaureButton from '../components/RoundSquareButton'
 import UserContext from '../utilities/UserContext'
+import genderIcon from '../assets/photos/female-icon.png'
 import userPortrait from '../assets/photos/user-portrait.jpg'
 import settingIcon from '../assets/photos/setting.png'
 import backgroundImage from '../assets/photos/user-background-1.png'
@@ -21,7 +23,10 @@ type MeProps = {
 }
 
 const Me: React.FC<MeProps> = ({navigation}) => {
-  const { userCount, followersCount } = useContext(UserContext);
+  const { userCount, followersCount } = useContext(UserContext)
+
+  const [signature, setSignature] = useState("Click here to fill in the profile")
+
 
   return (
     <View style={styles.container}>
@@ -31,6 +36,19 @@ const Me: React.FC<MeProps> = ({navigation}) => {
           <Image style={styles.profileImage} source={userPortrait} />
           <Text style={styles.profileName}>Money</Text>
         </View>
+
+        <TextInput 
+          style={styles.signatureInput}
+          value={signature}
+          onChangeText={text => setSignature(text)}
+          placeholder="Click here to fill in the profile"
+          placeholderTextColor="#FFFFFF"
+        />
+
+        <Image 
+          source={genderIcon}
+          style={styles.genderIcon}
+        />
 
         <View style={styles.statsContainer}>
           <StackButton number={userCount.toString()} label="Following" onPress={() => navigation.navigate('Following')} />
@@ -128,8 +146,31 @@ const styles = StyleSheet.create({
   },
   topTabContainer: {
     flex: 1,
-    marginTop: 15,
-  }
+    marginTop: 10,
+  },
+  signatureInput: {
+    width: 300,
+    height: 20,
+    borderColor: '#FFFFFF',
+    color: '#FFFFFF',
+    borderWidth: 1,
+    paddingLeft: 10,
+    marginLeft: 15,
+    marginRight: 15,
+  },
+  signatureText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    marginBottom: 5,
+  },
+  genderIcon: {
+    width: 15,
+    height: 15,
+    resizeMode: 'contain',
+    marginTop: 8,
+    marginLeft: 35,
+    marginBottom: 8,
+  },
 })
 
 export default Me
