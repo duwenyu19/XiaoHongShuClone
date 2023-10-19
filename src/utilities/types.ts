@@ -23,3 +23,6 @@ export type HomeStackParamList = {
 export type MeScreenNavigationProp = NavigationProp<MeStackParamList, 'MePage'>
 
 export type HomeScreenNavigationProp = NavigationProp<HomeStackParamList, 'HomePage'>
+
+export type UserProfileGeneralNavigationProp = NavigationProp<MeStackParamList, 'UserProfileGeneral'>;
+

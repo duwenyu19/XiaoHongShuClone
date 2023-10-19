@@ -18,7 +18,6 @@ const MeNavigator: React.FC = () => {
     <MeStack.Navigator
       screenOptions={{
         gestureEnabled: true,
-        
       }}
     >
       <MeStack.Screen name="MePage" component={Me} options={{headerShown: false,}}/>

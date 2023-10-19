@@ -1,14 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { usersData } from '../../utilities/userData';
+import { RouteProp, NavigationProp } from '@react-navigation/native';
+import { MeStackParamList } from '../../utilities/types';
+import { UserProfileGeneralNavigationProp } from '../../utilities/types';
 
 type UserProfileGeneralProps = {
-  route: {
-    params: {
-      userId: string;
-    };
-  };
-};
+  // userId: string;
+  route: RouteProp<MeStackParamList, 'UserProfileGeneral'>;
+  navigation: UserProfileGeneralNavigationProp
+}
 
   
 

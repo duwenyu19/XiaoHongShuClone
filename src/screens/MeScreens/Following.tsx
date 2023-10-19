@@ -1,13 +1,24 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native';
 import { usersData } from '../../utilities/userData';
+import { UserProfileGeneralNavigationProp } from '../../utilities/types';
+import UserContext from '../../utilities/UserContext';
 
 
 type FollowingProps = {
-  navigation: any;
+  navigation: UserProfileGeneralNavigationProp
 };
 
 const Following: React.FC<FollowingProps> = ({navigation}) => {
+    
+    const { setUserCount } = useContext(UserContext)
+
+    useEffect(() => {
+        setUserCount(Object.keys(usersData).length);
+    }, []);
+    
+
+
     return (
         <View style={styles.container}>
             <View style={styles.searchBar}>

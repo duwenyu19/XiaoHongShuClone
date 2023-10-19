@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native'
 import { MeScreenNavigationProp } from '../utilities/types'
 import MeTopTabNavigator from '../navigators/MeTopTabNavigator'
 import StackButton from '../components/StackButton'
 import RoundSqaureButton from '../components/RoundSquareButton'
+import UserContext from '../utilities/UserContext'
 import userPortrait from '../assets/photos/user-portrait.jpg'
 import settingIcon from '../assets/photos/setting.png'
 import backgroundImage from '../assets/photos/user-background-1.png'
@@ -13,6 +14,8 @@ type MeProps = {
 }
 
 const Me: React.FC<MeProps> = ({navigation}) => {
+  const { userCount } = useContext(UserContext);
+
   return (
     <View style={styles.container}>
       <ImageBackground source={backgroundImage} style={styles.backgroundContainer}>
@@ -23,7 +26,7 @@ const Me: React.FC<MeProps> = ({navigation}) => {
         </View>
 
         <View style={styles.statsContainer}>
-          <StackButton number="1" label="Following" onPress={() => navigation.navigate('Following')} />
+          <StackButton number={userCount.toString()} label="Following" onPress={() => navigation.navigate('Following')} />
           <StackButton number="100000000" label="Followers" onPress={() => navigation.navigate('Followers')} />
           <StackButton number="0" label="Likes & Col" onPress={() => navigation.navigate('LikesAndCol')} />
           <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('EditProfile')}>
