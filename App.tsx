@@ -6,10 +6,12 @@ import { StyleSheet } from 'react-native'
 import UserContext from './src/utilities/UserContext'
 
 const App: React.FC = () => {
-  const [userCount, setUserCount] = useState(0);
+  const [userCount, setUserCount] = useState(0)
+const [followersCount, setFollowersCount] = useState(0)
+
   
   return (
-    <UserContext.Provider value={{ userCount, setUserCount }}>
+    <UserContext.Provider value={{ userCount, setUserCount, followersCount, setFollowersCount }}>
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
           <BottomTabNavigator />

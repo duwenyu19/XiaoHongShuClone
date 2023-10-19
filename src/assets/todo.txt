@@ -26,13 +26,13 @@ and add related pages to their folder (check)
 
 8. Modify Bottom tab icon and name style (check)
 
-9. Add a scroll view for the following and followers page *
+9. Add a scroll view for the following and followers page (check)
  
-9.1 Add navigation to different user profile page using user id
+9.1 Add navigation to different user profile page using user id (check)
 
-9.2 Add search bar to search key word, and best match result will show on the top
+9.2 Add search bar to search key word, and best match result will show on the top (check)
 
-9.3 Add a full screen of following users, pull data from an array
+9.3 Add a full screen of following users, pull data from an array (check)
 
 (Add a comment line showing each part of the component in return())
 ({/* Search bar */})

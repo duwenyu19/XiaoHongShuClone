@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
-import { usersData } from '../../utilities/userData'
+import { usersDataFollowing } from '../../utilities/userDataFollowing'
 import { UserProfileGeneralNavigationProp } from '../../utilities/types'
 import UserContext from '../../utilities/UserContext'
 
@@ -19,17 +19,17 @@ const Following: React.FC<FollowingProps> = ({navigation}) => {
     
     const { setUserCount } = useContext(UserContext)
     const [searchText, setSearchText] = useState('')
-    const [filteredUsers, setFilteredUsers] = useState(Object.values(usersData))
+    const [filteredUsers, setFilteredUsers] = useState(Object.values(usersDataFollowing))
 
     useEffect(() => {
-        setUserCount(Object.keys(usersData).length)
+        setUserCount(Object.keys(usersDataFollowing).length)
     }, [])
 
     useEffect(() => {
         if (searchText.trim() === '') {
-            setFilteredUsers(Object.values(usersData));
+            setFilteredUsers(Object.values(usersDataFollowing));
         } else {
-            const filtered = Object.values(usersData).filter(user =>
+            const filtered = Object.values(usersDataFollowing).filter(user =>
                 user.name.toLowerCase().includes(searchText.toLowerCase())
             );
             setFilteredUsers(filtered);
@@ -41,7 +41,7 @@ const Following: React.FC<FollowingProps> = ({navigation}) => {
             <View style={styles.searchBar}>
                 <TextInput
                     style={styles.searchInput}
-                    placeholder="search"
+                    placeholder="Search"
                     placeholderTextColor="white"
                     value={searchText}
                     onChangeText={setSearchText}
@@ -53,7 +53,7 @@ const Following: React.FC<FollowingProps> = ({navigation}) => {
                 renderItem={({item}) => (
                     <TouchableOpacity 
                         style={styles.userCard}
-                        onPress={() => navigation.navigate('UserProfileGeneral', { userId: item.id })}
+                        onPress={() => navigation.navigate('UserProfileGeneral', { userId: item.id, dataSource: 'following' })}
                     >
                         <Image
                             style={styles.userImage}

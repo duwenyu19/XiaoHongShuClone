@@ -14,7 +14,8 @@ type MeProps = {
 }
 
 const Me: React.FC<MeProps> = ({navigation}) => {
-  const { userCount } = useContext(UserContext)
+  const { userCount, followersCount } = useContext(UserContext)
+
 
   return (
     <View style={styles.container}>
@@ -27,7 +28,7 @@ const Me: React.FC<MeProps> = ({navigation}) => {
 
         <View style={styles.statsContainer}>
           <StackButton number={userCount.toString()} label="Following" onPress={() => navigation.navigate('Following')} />
-          <StackButton number="100000000" label="Followers" onPress={() => navigation.navigate('Followers')} />
+          <StackButton number={followersCount.toString()} label="Followers" onPress={() => navigation.navigate('Followers')} />
           <StackButton number="0" label="Likes & Col" onPress={() => navigation.navigate('LikesAndCol')} />
           <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('EditProfile')}>
             <Text style={[{color: '#FFFFFF'},{fontWeight: 'bold'},{fontSize: 12}]}>Edit Profile</Text>

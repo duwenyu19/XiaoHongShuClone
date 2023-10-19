@@ -1,17 +1,10 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
-import { usersData } from '../../utilities/userData'
-import { RouteProp, NavigationProp } from '@react-navigation/native'
+import { usersDataFollowing } from '../../utilities/userDataFollowing'
+import { usersDataFollowers } from '../../utilities/usersDataFollowers'
+import { RouteProp } from '@react-navigation/native'
 import { MeStackParamList } from '../../utilities/types'
 import { UserProfileGeneralNavigationProp } from '../../utilities/types'
-
-// type UserProfileGeneralRouteProp = RouteProp<MeStackParamList, 'UserProfileGeneral'>
-// type UserProfileGeneralNavigationProp = NavigationProp<MeStackParamList, 'UserProfileGeneral'>
-
-// interface UserProfileGeneralProps {
-//   route: UserProfileGeneralRouteProp
-//   navigation: UserProfileGeneralNavigationProp
-// }
 
 type UserProfileGeneralProps = {
   navigation: UserProfileGeneralNavigationProp;
@@ -20,9 +13,16 @@ type UserProfileGeneralProps = {
 
 
 const UserProfileGeneral: React.FC<any> = ({ route }) => {
-  const { userId } = route.params
+  const { userId, dataSource } = route.params
 
-  const user = usersData[userId]
+  let user;
+  if (dataSource === 'followers') {
+    user = usersDataFollowers[userId];
+  } else {
+    user = usersDataFollowing[userId];
+  }
+
+  //const user = usersDataFollowing[userId]
 
   if (!user) {
     return (
