@@ -43,14 +43,14 @@ and add related pages to their folder (check)
 
 12. Add logic for EditProfile *
 
-13. Add a backend (MERN) for posts *
+13. Add a backend (MERN) for posts * (Oct 19)
 
 14. Add error handlers
 
 15. Add a user context to keep track of the number of users from UserData (check)
 
 
-Tries:
+Notes:
 1. 
 I tried to make the tab indicator to appear directly below the label instead of shifting, 
 installed tailwind and tried to recalculate the position for each tab, but the speed is very slow,

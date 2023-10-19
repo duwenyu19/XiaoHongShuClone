@@ -15,9 +15,9 @@ const MeTopTabNavigator: React.FC = () => {
         tabBarInactiveTintColor: 'black',
         tabBarStyle: {
           backgroundColor: 'white',
+          height: 42,
           elevation: 0,
           shadowOpacity: 0,
-          paddingTop: 10,
           borderTopLeftRadius: 10,
           borderTopRightRadius: 10,
         },
@@ -31,6 +31,7 @@ const MeTopTabNavigator: React.FC = () => {
         tabBarLabelStyle: {
           fontWeight: 'bold',
           fontSize: 12,
+          textAlignVertical: 'center',
         },
         tabBarAllowFontScaling: false,
       }}
