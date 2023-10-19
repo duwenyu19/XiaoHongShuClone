@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
-import { usersDataFollowing } from '../../utilities/userDataFollowing'
+import { usersDataFollowing } from '../../utilities/usersDataFollowing'
 import { UserProfileGeneralNavigationProp } from '../../utilities/types'
 import UserContext from '../../utilities/UserContext'
 

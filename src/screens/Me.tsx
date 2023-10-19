@@ -1,5 +1,12 @@
-import React, {useContext} from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native'
+import React, { useContext } from 'react'
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  TouchableOpacity, 
+  Image, 
+  ImageBackground,  
+} from 'react-native'
 import { MeScreenNavigationProp } from '../utilities/types'
 import MeTopTabNavigator from '../navigators/MeTopTabNavigator'
 import StackButton from '../components/StackButton'
@@ -14,8 +21,7 @@ type MeProps = {
 }
 
 const Me: React.FC<MeProps> = ({navigation}) => {
-  const { userCount, followersCount } = useContext(UserContext)
-
+  const { userCount, followersCount } = useContext(UserContext);
 
   return (
     <View style={styles.container}>

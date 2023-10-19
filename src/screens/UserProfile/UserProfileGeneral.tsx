@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
-import { usersDataFollowing } from '../../utilities/userDataFollowing'
+import { usersDataFollowing } from '../../utilities/usersDataFollowing'
 import { usersDataFollowers } from '../../utilities/usersDataFollowers'
 import { RouteProp } from '@react-navigation/native'
 import { MeStackParamList } from '../../utilities/types'
