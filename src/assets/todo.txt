@@ -26,16 +26,28 @@ and add related pages to their folder (check)
 
 8. Modify Bottom tab icon and name style (check)
 
-9. Add a scroll view for the following and followers page 
+9. Add a scroll view for the following and followers page *
+ 
+9.1 Add navigation to different user profile page using user id
 
-10. Add a profile page for Symba, add a navigation to it from Following
+9.2 Add search bar to search key word, and best match result will show on the top
 
-11. Add actual posts to home, one for Symba, one for Money
+9.3 Add a full screen of following users, pull data from an array
 
-12. Add logic for EditProfile
+(Add a comment line showing each part of the component in return())
+({/* Search bar */})
 
-13. Add a backend (MERN) for posts
+10. Add a profile page for Symba, add a navigation to it from Following (check)
 
+11. Add actual posts to home, one for Symba, one for Money (check)
+
+12. Add logic for EditProfile *
+
+13. Add a backend (MERN) for posts *
+
+14. Add error handlers
+
+15. Add a user context to keep track of the number of users from UserData
 
 
 Tries:

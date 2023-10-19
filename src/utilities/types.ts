@@ -10,6 +10,7 @@ export type MeStackParamList = {
   LikesAndCol: undefined
   EditProfile: undefined
   Settings: undefined
+  UserProfileGeneral: { userId: string }
 };
 
 export type HomeStackParamList = {

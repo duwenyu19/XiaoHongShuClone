@@ -9,6 +9,7 @@ import Followers from '../screens/MeScreens/Followers'
 import LikesAndCol from '../screens/MeScreens/LikesAndCol'
 import EditProfile from '../screens/MeScreens/EditProfile'
 import Setting from '../screens/MeScreens/Setting'
+import UserProfileGeneral from '../screens/UserProfile/UserProfileGeneral'
 
 const MeStack = createStackNavigator()
 
@@ -29,6 +30,7 @@ const MeNavigator: React.FC = () => {
       <MeStack.Screen name="LikesAndCol" component={LikesAndCol} />
       <MeStack.Screen name="EditProfile" component={EditProfile} />
       <MeStack.Screen name="Settings" component={Setting} />
+      <MeStack.Screen name="UserProfileGeneral" component={UserProfileGeneral} />
     </MeStack.Navigator>
   )
 }
