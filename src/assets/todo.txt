@@ -49,13 +49,19 @@ and add related pages to their folder (check)
 
 15. Add a user context to keep track of the number of users from UserData (check)
 
+16. Modify Home navigators logic, remove Follow, Explore, and Nearby from HomeNavigator,
+add a navigator for each page
+
 
 Notes:
-1. 
-I tried to make the tab indicator to appear directly below the label instead of shifting, 
+
+1. I tried to make the tab indicator to appear directly below the label instead of shifting, 
 installed tailwind and tried to recalculate the position for each tab, but the speed is very slow,
 I am going to keep the react native default shifting animation for now. If this is of a higher priorotiy,
 I will rework it anytime if needed and will try again to figure out how to improve the speed
+
+2. I was deciding between creating individual stack navigator for each clickable button on 
+Me page or just dump everything in Me stack, and have decided to just put everything in the MeNavigator (MeStack) for now
 
 
 后期：

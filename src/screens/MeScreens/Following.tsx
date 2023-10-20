@@ -1,18 +1,11 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import { usersDataFollowing } from '../../utilities/usersDataFollowing'
-import { UserProfileGeneralNavigationProp } from '../../utilities/types'
+import { FollowingScreenNavigationProp } from '../../utilities/types'
 import UserContext from '../../utilities/UserContext'
 
-type UserData = {
-    id: string
-    name: string
-    description: string
-    image: any
-}
-
 type FollowingProps = {
-  navigation: UserProfileGeneralNavigationProp
+  navigation: FollowingScreenNavigationProp
 }
 
 const Following: React.FC<FollowingProps> = ({navigation}) => {

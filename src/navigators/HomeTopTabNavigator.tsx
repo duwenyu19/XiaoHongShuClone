@@ -1,11 +1,11 @@
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import Follow from '../screens/HomeScreens/Follow'
 import Explore from '../screens/HomeScreens/Explore'
 import Nearby from '../screens/HomeScreens/Nearby'
 
 const TopTab = createMaterialTopTabNavigator()
 
-const TobTabNavigator: React.FC = () => {
+const HomeTobTabNavigator: React.FC = () => {
   return (
     <TopTab.Navigator
       initialRouteName="Explore"
@@ -34,7 +34,7 @@ const TobTabNavigator: React.FC = () => {
       <TopTab.Screen name="Explore" component={Explore} />
       <TopTab.Screen name="Nearby" component={Nearby} />
     </TopTab.Navigator>
-  );
+  )
 }
 
-export default TobTabNavigator;
+export default HomeTobTabNavigator

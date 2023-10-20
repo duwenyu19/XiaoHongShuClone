@@ -51,8 +51,8 @@ const Me: React.FC<MeProps> = ({navigation}) => {
         />
 
         <View style={styles.statsContainer}>
-          <StackButton number={userCount.toString()} label="Following" onPress={() => navigation.navigate('Following')} />
-          <StackButton number={followersCount.toString()} label="Followers" onPress={() => navigation.navigate('Followers')} />
+          <StackButton number={userCount.toString()} label="Following" onPress={() => navigation.navigate('MeFollowing')} />
+          <StackButton number={followersCount.toString()} label="Followers" onPress={() => navigation.navigate('MeFollowers')} />
           <StackButton number="0" label="Likes & Col" onPress={() => navigation.navigate('LikesAndCol')} />
           <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('EditProfile')}>
             <Text style={[{color: '#FFFFFF'},{fontWeight: 'bold'},{fontSize: 12}]}>Edit Profile</Text>
