@@ -1,11 +1,11 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import { usersDataFollowers } from '../../utilities/usersDataFollowers'
-import { FollowingScreenNavigationProp } from '../../utilities/types'
+import { FollowersScreenNavigationProp } from '../../utilities/types'
 import UserContext from '../../utilities/UserContext'
 
 type FollowersProps = {
-  navigation: FollowingScreenNavigationProp
+  navigation: FollowersScreenNavigationProp
 }
 
 const Followers: React.FC<FollowersProps> = ({navigation}) => {
