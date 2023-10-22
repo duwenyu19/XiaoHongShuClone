@@ -1,7 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import FollowingDetail from '../screens/MeScreens/Following'
-import UserProfileGeneral from '../screens/UserProfile/UserProfileGeneral'
+import UserProfileGeneral from '../screens/UserInfo/UserProfileGeneral'
 import { FollowingStackParamList } from '../utilities/types'
 
 const FollowingStack = createStackNavigator<FollowingStackParamList>()
