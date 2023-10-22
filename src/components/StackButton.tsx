@@ -2,9 +2,9 @@ import React from 'react'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 interface StackButtonProps {
-    number: string;
-    label: string;
-    onPress: () => void;
+    number: string
+    label: string
+    onPress: () => void
   }
 
 const StackButton: React.FC<StackButtonProps> = ({ number, label, onPress }) => {

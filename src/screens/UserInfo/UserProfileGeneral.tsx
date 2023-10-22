@@ -6,8 +6,8 @@ import { NavigationProp, RouteProp } from '@react-navigation/native'
 import { FollowersStackParamList, FollowingStackParamList } from '../../utilities/types'
 
 type UserProfileGeneralProps = {
-  navigation: NavigationProp<FollowingStackParamList> | NavigationProp<FollowersStackParamList>;
-  route: RouteProp<FollowingStackParamList, 'UserProfileGeneral'> | RouteProp<FollowersStackParamList, 'UserProfileGeneral'>;
+  navigation: NavigationProp<FollowingStackParamList> | NavigationProp<FollowersStackParamList>
+  route: RouteProp<FollowingStackParamList, 'UserProfileGeneral'> | RouteProp<FollowersStackParamList, 'UserProfileGeneral'>
 }
 
 
@@ -15,7 +15,7 @@ type UserProfileGeneralProps = {
 const UserProfileGeneral: React.FC<UserProfileGeneralProps> = ({ route }) => {
   const { userId, dataSource } = route.params
 
-  let user;
+  let user
   if (dataSource === 'followers') {
     user = usersDataFollowers[userId];
   } else {
@@ -27,7 +27,7 @@ const UserProfileGeneral: React.FC<UserProfileGeneralProps> = ({ route }) => {
       <View style={styles.container}>
         <Text>User not found!</Text>
       </View>
-    );
+    )
   }
 
   return (
@@ -36,8 +36,8 @@ const UserProfileGeneral: React.FC<UserProfileGeneralProps> = ({ route }) => {
       <Text>{user.name}</Text>
       <Text>{user.description}</Text>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
     container: {

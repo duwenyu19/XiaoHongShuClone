@@ -1,10 +1,10 @@
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Posts from '../screens/MeTopBarScreens/Posts';
-import TagComponent from '../screens/MeTopBarScreens/Tag';
-import CollectsComponent from '../screens/MeTopBarScreens/Collects';
-import LikesComponent from '../screens/MeTopBarScreens/Likes';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import Posts from '../screens/MeTopBarScreens/Posts'
+import TagComponent from '../screens/MeTopBarScreens/Tag'
+import CollectsComponent from '../screens/MeTopBarScreens/Collects'
+import LikesComponent from '../screens/MeTopBarScreens/Likes'
 
-const MeTopTab = createMaterialTopTabNavigator();
+const MeTopTab = createMaterialTopTabNavigator()
 
 const MeTopTabNavigator: React.FC = () => {
   return (
@@ -41,7 +41,7 @@ const MeTopTabNavigator: React.FC = () => {
       <MeTopTab.Screen name="Collects" component={CollectsComponent} />
       <MeTopTab.Screen name="Likes" component={LikesComponent} />
     </MeTopTab.Navigator>
-  );
+  )
 }
 
-export default MeTopTabNavigator;
+export default MeTopTabNavigator

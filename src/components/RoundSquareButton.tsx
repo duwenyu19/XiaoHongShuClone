@@ -2,8 +2,8 @@ import React from 'react'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 interface RoundSqaureButtonProps {
-    label: string;
-    onPress: () => void;
+    label: string
+    onPress: () => void
   }
 
 const RoundSqaureButton: React.FC<RoundSqaureButtonProps> = ({label, onPress }) => {
