@@ -23,6 +23,7 @@ const HomeTobTabNavigator: React.FC = () => {
           height: 2,
           width: '10%',
           left: '11.8%',
+          marginBottom: 7,
         },
         tabBarLabelStyle: {
           fontWeight: 'bold',

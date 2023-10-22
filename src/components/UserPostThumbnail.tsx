@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FlatList, Image, StyleSheet, Text, View, ImageSourcePropType } from 'react-native'
 import { usersDataFollowing } from '../utilities/usersDataFollowing'
 
@@ -25,6 +25,8 @@ interface Props {
 }
 
 const UserPostThumbnail: React.FC<Props> = ({ data }) => {
+    const [numColumns, setNumColumns] = useState(2)
+
     const renderItem = ({ item }: { item: UserPost }) => {
         let userName
     
@@ -41,7 +43,7 @@ const UserPostThumbnail: React.FC<Props> = ({ data }) => {
                     <Text>{userName}</Text>
                 </View>
                 <Image source={item.image} style={styles.postImage} />
-                <Text>{item.caption}</Text>
+                <Text style={styles.caption}>{item.caption}</Text>
             </View>
         )
     }
@@ -51,6 +53,8 @@ const UserPostThumbnail: React.FC<Props> = ({ data }) => {
 
     return (
         <FlatList
+            key={numColumns}
+            numColumns={numColumns}
             data={dataArray}
             renderItem={renderItem}
             keyExtractor={(item) => item.id}
@@ -60,7 +64,11 @@ const UserPostThumbnail: React.FC<Props> = ({ data }) => {
 
 const styles = StyleSheet.create({
     postContainer: {
-        marginBottom: 20,
+        margin: 5,
+        flex: 1 / 2,
+        padding: 5,
+        borderColor: '#000000',
+        borderWidth: 1,
     },
     header: {
         flexDirection: 'row',
@@ -77,7 +85,14 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 250,
         resizeMode: 'cover',
+        marginBottom: 5,
+        borderColor: '#000000',
+        borderWidth: 1,
     },
+    caption: {
+        fontSize: 15,
+        margin: 5,
+    }
 })
 
 export default UserPostThumbnail
