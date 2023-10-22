@@ -1,15 +1,17 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import UserPostThumbnail from '../../components/UserPostThumbnail'
+import { usersDataPostExplore } from '../../utilities/usersDataPostExplore'
 import { HomeScreenNavigationProp } from '../../utilities/types'
 
 type ExploreProps = {
-  navigation: HomeScreenNavigationProp;
+  navigation: HomeScreenNavigationProp
 }
 
 const Explore: React.FC<ExploreProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>Explore Page</Text>
+      <UserPostThumbnail data={usersDataPostExplore} usersData={usersDataPostExplore} />
     </View>
   )
 }
@@ -17,9 +19,13 @@ const Explore: React.FC<ExploreProps> = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'white',
-      justifyContent: 'center',
-      alignItems: 'center'
+      backgroundColor: 'white'
+    },
+    heading: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      margin: 20,
+      textAlign: 'center'
     }
 })
 

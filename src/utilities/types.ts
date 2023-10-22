@@ -1,7 +1,7 @@
 import { NavigationProp } from '@react-navigation/native'
 
 export type MeStackParamList = {
-  Me: undefined
+  MePage: undefined
   购物车: undefined
   创作灵感: undefined
   浏览记录: undefined
@@ -30,15 +30,18 @@ export type FollowersStackParamList = {
 }
 
 export type HomeStackParamList = {
-  Home: undefined
+  HomePage: undefined
   Follow: undefined
   Explore: undefined
   Nearby: undefined
+  UserPostGeneral: {
+    userId?: string
+  }
 }
 
-export type MeScreenNavigationProp = NavigationProp<MeStackParamList, 'Me'>
+export type MeScreenNavigationProp = NavigationProp<MeStackParamList, 'MePage'>
 
-export type HomeScreenNavigationProp = NavigationProp<HomeStackParamList, 'Home'>
+export type HomeScreenNavigationProp = NavigationProp<HomeStackParamList, 'HomePage'>
 
 export type FollowingScreenNavigationProp = NavigationProp<FollowingStackParamList, 'FollowingDetail'>
 

@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     height: 15,
     resizeMode: 'contain',
     marginTop: 8,
-    marginLeft: 35,
+    marginLeft: 15,
     marginBottom: 8,
   },
 })

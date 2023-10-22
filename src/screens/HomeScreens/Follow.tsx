@@ -1,6 +1,9 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import UserPostThumbnail from '../../components/UserPostThumbnail'
+import { usersDataPostFollowing } from '../../utilities/usersDataPostFollowing'
 import { HomeScreenNavigationProp } from '../../utilities/types'
+import { usersDataFollowing } from '../../utilities/usersDataFollowing'
 
 type FollowProps = {
   navigation: HomeScreenNavigationProp;
@@ -9,7 +12,8 @@ type FollowProps = {
 const Follow: React.FC<FollowProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>Follow Page</Text>
+      <UserPostThumbnail data={usersDataPostFollowing} usersData={usersDataFollowing} />
+
     </View>
   )
 }
@@ -17,9 +21,13 @@ const Follow: React.FC<FollowProps> = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'white',
-      justifyContent: 'center',
-      alignItems: 'center'
+      backgroundColor: 'white'
+    },
+    heading: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      margin: 20,
+      textAlign: 'center'
     }
 })
 
