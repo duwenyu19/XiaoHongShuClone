@@ -1,21 +1,16 @@
 import { ImageSourcePropType } from 'react-native'
 
-type UserPost = {
+export type UserPost = {
     id: string
     userId: string
     image: ImageSourcePropType
     caption: string
     userAvatar: ImageSourcePropType
+    name?: string
+    description?: string
 }
 
-type UserData = {
-    id: string
-    name: string
-    description: string
-    image: ImageSourcePropType
-}
-
-export const usersDataPostExplore: Record<string, UserPost & UserData> = {
+export const usersDataPostExplore: Record<string, UserPost> = {
     'post1': {
         id: 'post1',
         userId: '1',

@@ -1,8 +1,10 @@
+import { ImageSourcePropType } from 'react-native'
+
 type UserData = {
     id: string
     name: string
     description: string
-    image: any
+    image: ImageSourcePropType
   }
   
 export const usersDataFollowing: Record<string,UserData> = {
@@ -72,7 +74,5 @@ export const usersDataFollowing: Record<string,UserData> = {
       description: '数字营销专家,擅长SEO和SEM策略',
       image: require('../assets/photos/user-portrait-7.jpg')
     },
-    
-    
   }
   

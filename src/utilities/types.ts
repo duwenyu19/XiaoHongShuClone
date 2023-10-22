@@ -1,4 +1,5 @@
 import { NavigationProp } from '@react-navigation/native'
+import { UserPost } from './usersDataPostExplore'
 
 export type MeStackParamList = {
   MePage: undefined
@@ -34,14 +35,15 @@ export type HomeStackParamList = {
   Follow: undefined
   Explore: undefined
   Nearby: undefined
-  UserPostGeneral: {
-    userId?: string
+  UserPostGeneral: { 
+    post: UserPost
+    source: 'explore' | 'following' 
   }
 }
 
-export type MeScreenNavigationProp = NavigationProp<MeStackParamList, 'MePage'>
-
 export type HomeScreenNavigationProp = NavigationProp<HomeStackParamList, 'HomePage'>
+
+export type MeScreenNavigationProp = NavigationProp<MeStackParamList, 'MePage'>
 
 export type FollowingScreenNavigationProp = NavigationProp<FollowingStackParamList, 'FollowingDetail'>
 

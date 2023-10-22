@@ -1,23 +1,19 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import Home from '../screens/Home'
-import Follow from '../screens/HomeScreens/Follow'
-import Explore from '../screens/HomeScreens/Explore'
-import Nearby from '../screens/HomeScreens/Nearby'
+import UserPostGeneral from '../screens/UserInfo/UserPostGeneral'
+import { HomeStackParamList } from '../utilities/types'
+import HomeTobTabNavigator from './HomeTopTabNavigator'
 
-const HomeStack = createStackNavigator()
+const HomeStack = createStackNavigator<HomeStackParamList>()
 
 const HomeNavigator: React.FC = () => {
   return (
     <HomeStack.Navigator 
       screenOptions={{ 
-        headerShown: false,
       }}
     >
-      <HomeStack.Screen name="HomePage" component={Home} />
-      <HomeStack.Screen name="Follow" component={Follow} />
-      <HomeStack.Screen name="Explore" component={Explore} />
-      <HomeStack.Screen name="Nearby" component={Nearby} />
+      <HomeStack.Screen name="HomePage" component={HomeTobTabNavigator} options={{headerShown: false,}} />
+      <HomeStack.Screen name="UserPostGeneral" component={UserPostGeneral} />
     </HomeStack.Navigator>
   )
 }

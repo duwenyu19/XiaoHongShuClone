@@ -20,12 +20,12 @@ const Followers: React.FC<FollowersProps> = ({navigation}) => {
 
     useEffect(() => {
         if (searchText.trim() === '') {
-            setFilteredUsers(Object.values(usersDataFollowers));
+            setFilteredUsers(Object.values(usersDataFollowers))
         } else {
             const filtered = Object.values(usersDataFollowers).filter(user =>
                 user.name.toLowerCase().includes(searchText.toLowerCase())
             );
-            setFilteredUsers(filtered);
+            setFilteredUsers(filtered)
         }
     }, [searchText])
 

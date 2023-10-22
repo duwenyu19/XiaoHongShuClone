@@ -11,7 +11,7 @@ type ExploreProps = {
 const Explore: React.FC<ExploreProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <UserPostThumbnail data={usersDataPostExplore} usersData={usersDataPostExplore} />
+      <UserPostThumbnail data={usersDataPostExplore} source={'explore'} navigation={navigation} />
     </View>
   )
 }

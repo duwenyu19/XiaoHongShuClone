@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { FlatList, Image, StyleSheet, Text, View, ImageSourcePropType } from 'react-native'
-import { usersDataFollowing } from '../utilities/usersDataFollowing'
+import { usersDataPostFollowing } from '../utilities/usersDataPostFollowing'
+import { usersDataPostExplore } from '../utilities/usersDataPostExplore'
+import { TouchableOpacity } from 'react-native'
+import { HomeScreenNavigationProp } from '../utilities/types'
 
 type UserPost = {
     id: string
@@ -12,20 +15,16 @@ type UserPost = {
     description?: string
 }
 
-type UserData = {
-    id: string
-    name: string
-    description: string
-    image: ImageSourcePropType
-}
-
 interface Props {
     data: Record<string, UserPost>
-    usersData?: Record<string, UserData>
+    source: 'explore' | 'following'
+    navigation: HomeScreenNavigationProp
 }
 
-const UserPostThumbnail: React.FC<Props> = ({ data }) => {
+const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source }) => {
     const [numColumns, setNumColumns] = useState(2)
+
+    const dataSource = source === 'explore' ? usersDataPostExplore : usersDataPostFollowing
 
     const renderItem = ({ item }: { item: UserPost }) => {
         let userName
@@ -33,18 +32,26 @@ const UserPostThumbnail: React.FC<Props> = ({ data }) => {
         if (item.name) {
             userName = item.name
         } else {
-            userName = usersDataFollowing[item.userId]?.name || item.userId
+            userName = dataSource[item.userId]?.name || item.userId
         }
     
         return (
-            <View style={styles.postContainer}>
+            <TouchableOpacity 
+                style={styles.postContainer}
+                onPress={() => {
+                    navigation.navigate('UserPostGeneral', { 
+                        post: item, 
+                        source: source
+                    });
+                }}
+            >
                 <View style={styles.header}>
                     <Image source={item.userAvatar} style={styles.avatar} />
                     <Text>{userName}</Text>
                 </View>
                 <Image source={item.image} style={styles.postImage} />
                 <Text style={styles.caption}>{item.caption}</Text>
-            </View>
+            </TouchableOpacity>
         )
     }
     
