@@ -9,8 +9,10 @@ import EditProfile from '../screens/MeScreens/EditProfile'
 import Setting from '../screens/MeScreens/Setting'
 import FollwoingNavigator from './FollowingNavigator'
 import FollowersNavigator from './FollowersNavigator'
+import UserPostGeneral from '../screens/UserInfo/UserPostGeneral'
+import { MeStackParamList } from '../utilities/types'
 
-const MeStack = createStackNavigator()
+const MeStack = createStackNavigator<MeStackParamList>()
 
 const MeNavigator: React.FC = () => {
   return (
@@ -28,6 +30,7 @@ const MeNavigator: React.FC = () => {
       <MeStack.Screen name="LikesAndCol" component={LikesAndCol} />
       <MeStack.Screen name="EditProfile" component={EditProfile} />
       <MeStack.Screen name="Settings" component={Setting} />
+      <MeStack.Screen name="UserPostGeneral" component={UserPostGeneral} />
     </MeStack.Navigator>
   )
 }

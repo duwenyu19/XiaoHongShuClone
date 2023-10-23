@@ -11,7 +11,10 @@ export type MeStackParamList = {
   LikesAndCol: undefined
   EditProfile: undefined
   Settings: undefined
-
+  UserPostGeneral: { 
+    post: UserPost
+    source: 'explore' | 'following' | 'me'
+  }
 }
 
 export type FollowingStackParamList = {
@@ -37,7 +40,7 @@ export type HomeStackParamList = {
   Nearby: undefined
   UserPostGeneral: { 
     post: UserPost
-    source: 'explore' | 'following' 
+    source: 'explore' | 'following' | 'me'
   }
 }
 

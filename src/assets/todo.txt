@@ -50,7 +50,7 @@ and add related pages to their folder (check)
 15. Add a user context to keep track of the number of users from UserData (check)
 
 16. Modify Home navigators logic, remove Follow, Explore, and Nearby from HomeNavigator,
-add a navigator for each page
+add a navigator for each page (check)
 
 
 Notes:

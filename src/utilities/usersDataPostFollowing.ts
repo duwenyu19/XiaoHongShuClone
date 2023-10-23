@@ -9,6 +9,7 @@ export type UserPost = {
     name?: string
     description?: string
 }
+
 export const usersDataPostFollowing: Record<string, UserPost> = {
     'post1': {
         id: 'post1',
@@ -40,7 +41,7 @@ export const usersDataPostFollowing: Record<string, UserPost> = {
     'post4': {
         id: 'post4',
         userId: '4',
-        name: 'bhc',
+        name: 'BHC',
         description: '一杯正常的冰红茶',
         image: require('../assets/photos/user-background-1.png'),
         caption: '今天的冰红茶特别好喝！',
@@ -49,7 +50,7 @@ export const usersDataPostFollowing: Record<string, UserPost> = {
     'post5': {
         id: 'post5',
         userId: '5',
-        name: 'hhhd',
+        name: 'HHHD',
         description: '程序员，技术博主...',
         image: require('../assets/photos/user-background-1.png'),
         caption: '刚完成的新项目真的很棒！',

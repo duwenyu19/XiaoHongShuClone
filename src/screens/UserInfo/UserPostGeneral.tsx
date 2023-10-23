@@ -4,6 +4,7 @@ import { RouteProp } from '@react-navigation/native'
 import { HomeStackParamList } from '../../utilities/types'
 import { UserPost, usersDataPostExplore } from '../../utilities/usersDataPostExplore'
 import { usersDataPostFollowing } from '../../utilities/usersDataPostFollowing'
+import { usersDataPostMe } from '../../utilities/usersDataPostMe'
 
 type UserPostGeneralProps = {
     route: RouteProp<HomeStackParamList, 'UserPostGeneral'>
@@ -11,7 +12,20 @@ type UserPostGeneralProps = {
   
   const UserPostGeneral: React.FC<UserPostGeneralProps> = ({ route }) => {
     const post: UserPost = route.params.post
-    const dataSource = route.params.source === 'explore' ? usersDataPostExplore : usersDataPostFollowing
+   
+    let dataSource;
+    switch (route.params.source) {
+        case 'explore':
+            dataSource = usersDataPostExplore;
+            break;
+        case 'following':
+            dataSource = usersDataPostFollowing;
+            break;
+        case 'me':
+            dataSource = usersDataPostMe;
+            break;
+    }
+    
     const userData = dataSource[post.id]
     
     return (

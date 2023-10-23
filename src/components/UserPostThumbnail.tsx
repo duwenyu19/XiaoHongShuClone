@@ -1,30 +1,33 @@
 import React, { useState } from 'react'
 import { FlatList, Image, StyleSheet, Text, View, ImageSourcePropType } from 'react-native'
 import { usersDataPostFollowing } from '../utilities/usersDataPostFollowing'
-import { usersDataPostExplore } from '../utilities/usersDataPostExplore'
+import { UserPost, usersDataPostExplore } from '../utilities/usersDataPostExplore'
+import { usersDataPostMe } from '../utilities/usersDataPostMe'
 import { TouchableOpacity } from 'react-native'
 import { HomeScreenNavigationProp } from '../utilities/types'
-
-type UserPost = {
-    id: string
-    userId: string
-    image: ImageSourcePropType
-    caption: string
-    userAvatar: ImageSourcePropType
-    name?: string
-    description?: string
-}
+import { MeScreenNavigationProp } from '../utilities/types'
 
 interface Props {
     data: Record<string, UserPost>
-    source: 'explore' | 'following'
-    navigation: HomeScreenNavigationProp
+    source: 'explore' | 'following' | 'me'
+    navigation: HomeScreenNavigationProp | MeScreenNavigationProp
 }
 
 const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source }) => {
     const [numColumns, setNumColumns] = useState(2)
 
-    const dataSource = source === 'explore' ? usersDataPostExplore : usersDataPostFollowing
+    let dataSource: Record<string, UserPost>;
+    switch (source) {
+        case 'explore':
+            dataSource = usersDataPostExplore;
+            break;
+        case 'following':
+            dataSource = usersDataPostFollowing;
+            break;
+        case 'me':
+            dataSource = usersDataPostMe;
+            break;
+    }
 
     const renderItem = ({ item }: { item: UserPost }) => {
         let userName
@@ -39,10 +42,11 @@ const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source }) => {
             <TouchableOpacity 
                 style={styles.postContainer}
                 onPress={() => {
-                    navigation.navigate('UserPostGeneral', { 
-                        post: item, 
-                        source: source
-                    });
+                    if (source === 'me' && 'navigate' in navigation) {
+                        (navigation as MeScreenNavigationProp).navigate('UserPostGeneral', { post: item, source: source });
+                    } else if ('navigate' in navigation) {
+                        (navigation as HomeScreenNavigationProp).navigate('UserPostGeneral', { post: item, source: source });
+                    }
                 }}
             >
                 <View style={styles.header}>
