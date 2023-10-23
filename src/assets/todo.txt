@@ -42,7 +42,7 @@ and add related pages to their folder (check)
 11. Add actual posts to home, one for Symba, one for Money (check)
 
 **** 12. Add logic for EditProfile, add Like Post Logic (add like button that can change color
-, add liked posts to Likes page)
+, add liked posts to Likes page) (half check)
 
 13. Add a backend (MERN) for posts * (Oct 19)
 

@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
-import { View, TextInput, Button, Alert, StyleSheet, Text } from 'react-native'
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, Alert, StyleSheet, ScrollView } from 'react-native';
+import { connect } from 'react-redux';
+import { updateProfileData } from '../../actions/profileActions';
+import RNPickerSelect from 'react-native-picker-select';
 
-type ProfileData = {
+export interface ProfileData {
   username: string;
   email: string;
   bio: string;
@@ -12,143 +15,139 @@ type ProfileData = {
   education: string;
 }
 
-const EditProfile: React.FC = () => {
-  const [profileData, setProfileData] = useState<ProfileData>({
-    username: '',
-    email: '',
-    bio: '',
-    gender: '',
-    birthDate: '',
-    location: '',
-    job: '',
-    education: '',
-  })
-
-  const handleInputChange = (field: keyof ProfileData, value: string) => {
-    setProfileData((prevData) => ({
-      ...prevData,
-      [field]: value,
-    }))
-  }
-
-  const handleUpdate = () => {
-    Alert.alert('Profile Updated', 'Your profile data has been updated.', [{ text: 'OK' }])
-  }
-
-  return (
-    <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Username"
-          value={profileData.username}
-          onChangeText={(text) => handleInputChange('username', text)}
-          style={styles.input}
-          placeholderTextColor="white"
-        />
-        <View style={styles.separator}></View>
-      </View>
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Email"
-          value={profileData.email}
-          onChangeText={(text) => handleInputChange('email', text)}
-          style={styles.input}
-          placeholderTextColor="white"
-        />
-        <View style={styles.separator}></View>
-      </View>
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Bio"
-          value={profileData.bio}
-          onChangeText={(text) => handleInputChange('bio', text)}
-          style={styles.input}
-          placeholderTextColor="white"
-        />
-        <View style={styles.separator}></View>
-      </View>
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Gender"
-          value={profileData.gender}
-          onChangeText={(text) => handleInputChange('gender', text)}
-          style={styles.input}
-          placeholderTextColor="white"
-        />
-        <View style={styles.separator}></View>
-      </View>
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Birth Date"
-          value={profileData.birthDate}
-          onChangeText={(text) => handleInputChange('birthDate', text)}
-          style={styles.input}
-          placeholderTextColor="white"
-        />
-        <View style={styles.separator}></View>
-      </View>
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Location"
-          value={profileData.location}
-          onChangeText={(text) => handleInputChange('location', text)}
-          style={styles.input}
-          placeholderTextColor="white"
-        />
-        <View style={styles.separator}></View>
-      </View>
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Job"
-          value={profileData.job}
-          onChangeText={(text) => handleInputChange('job', text)}
-          style={styles.input}
-          placeholderTextColor="white"
-        />
-        <View style={styles.separator}></View>
-      </View>
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Education"
-          value={profileData.education}
-          onChangeText={(text) => handleInputChange('education', text)}
-          style={styles.input}
-          placeholderTextColor="white"
-        />
-        <View style={styles.separator}></View>
-      </View>
-
-      <Button title="Update Profile" onPress={handleUpdate} color="#FFFFFF"/>
-    </View>
-  )
+interface EditProfileProps {
+  profileData: ProfileData;
+  updateProfileData: (data: ProfileData) => void;
 }
 
+const EditProfile: React.FC<EditProfileProps> = ({ profileData, updateProfileData }) => {
+  const [localProfileData, setLocalProfileData] = useState<ProfileData>(profileData);
+
+  const handleInputChange = (field: keyof ProfileData, value: string) => {
+    setLocalProfileData({ ...localProfileData, [field]: value });
+  };
+
+  const handleUpdate = () => {
+    updateProfileData(localProfileData);
+    Alert.alert('Profile Updated', 'Your profile data has been updated.', [{ text: 'OK' }]);
+  };
+
+  const pickerSelectStyles = StyleSheet.create({
+    inputIOS: {
+      fontSize: 16,
+      paddingVertical: 12,
+      paddingHorizontal: 10,
+      borderWidth: 1,
+      borderColor: 'gray',
+      borderRadius: 4,
+      color: 'white',
+      paddingRight: 30,
+      backgroundColor: 'gray',
+    },
+    inputAndroid: {
+      fontSize: 16,
+      paddingHorizontal: 10,
+      paddingVertical: 8,
+      borderWidth: 0.5,
+      borderColor: 'gray',
+      borderRadius: 8,
+      color: 'white',
+      paddingRight: 30,
+      backgroundColor: 'gray',
+    },
+  });
+
+  return (
+    <ScrollView style={styles.scrollView}>
+      <View style={styles.container}>
+        <Text>Name:</Text>
+        <TextInput
+          value={localProfileData.username}
+          onChangeText={(value) => handleInputChange('username', value)}
+          style={styles.input}
+        />
+        <Text>Email:</Text>
+        <TextInput
+          value={localProfileData.email}
+          onChangeText={(value) => handleInputChange('email', value)}
+          style={styles.input}
+        />
+        <Text>Gender:</Text>
+        <RNPickerSelect
+          placeholder={{
+            label: 'Select a gender',
+            value: null,
+          }}
+          onValueChange={(value) => handleInputChange('gender', value.toString())}
+          style={pickerSelectStyles}
+          value={localProfileData.gender}
+          items={[
+            { label: 'Male', value: 'Male' },
+            { label: 'Female', value: 'Female' },
+          ]}
+        />
+        <Text>Bio:</Text>
+        <TextInput
+          value={localProfileData.bio}
+          onChangeText={(value) => handleInputChange('bio', value)}
+          style={styles.input}
+        />
+        <Text>Birth Date:</Text>
+        <TextInput
+          value={localProfileData.birthDate}
+          onChangeText={(value) => handleInputChange('birthDate', value)}
+          style={styles.input}
+        />
+        <Text>Location:</Text>
+        <TextInput
+          value={localProfileData.location}
+          onChangeText={(value) => handleInputChange('location', value)}
+          style={styles.input}
+        />
+        <Text>Job:</Text>
+        <TextInput
+          value={localProfileData.job}
+          onChangeText={(value) => handleInputChange('job', value)}
+          style={styles.input}
+        />
+        <Text>Education:</Text>
+        <TextInput
+          value={localProfileData.education}
+          onChangeText={(value) => handleInputChange('education', value)}
+          style={styles.input}
+        />
+        <Button title="Update Profile" onPress={handleUpdate} />
+      </View>
+    </ScrollView>
+  );
+};
+
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-    backgroundColor: 'gray',
-    padding: 20,
-  },
-  inputContainer: {
-    marginBottom: 10,
+    padding: 10,
+    justifyContent: 'center',
   },
   input: {
+    height: 40,
     borderColor: 'gray',
     borderWidth: 1,
+    marginBottom: 5,
     padding: 10,
-    color: 'white',
   },
-  separator: {
-    height: 1,
-    backgroundColor: 'white',
-  },
-})
+});
 
-export default EditProfile
+const mapStateToProps = (state: any) => {
+  return {
+    profileData: state.profile,
+  };
+};
+
+const mapDispatchToProps = {
+  updateProfileData,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile);

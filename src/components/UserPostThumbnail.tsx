@@ -6,15 +6,18 @@ import { usersDataPostMe } from '../utilities/usersDataPostMe'
 import { TouchableOpacity } from 'react-native'
 import { HomeScreenNavigationProp } from '../utilities/types'
 import { MeScreenNavigationProp } from '../utilities/types'
+import { connect } from 'react-redux';
+import { RootState } from '../reducers/profileReducer';
 
 interface Props {
-    data: Record<string, UserPost>
-    source: 'explore' | 'following' | 'me'
-    navigation: HomeScreenNavigationProp | MeScreenNavigationProp
+    data: Record<string, UserPost>;
+    source: 'explore' | 'following' | 'me';
+    navigation: HomeScreenNavigationProp | MeScreenNavigationProp;
+    username: string;
 }
 
-const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source }) => {
-    const [numColumns, setNumColumns] = useState(2)
+const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source, username }) => {
+    const [numColumns, setNumColumns] = useState(2);
 
     let dataSource: Record<string, UserPost>;
     switch (source) {
@@ -30,14 +33,16 @@ const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source }) => {
     }
 
     const renderItem = ({ item }: { item: UserPost }) => {
-        let userName
-    
-        if (item.name) {
-            userName = item.name
+        let displayedName;
+
+        if (source === 'me') {
+            displayedName = username;
+        } else if (item.name) {
+            displayedName = item.name;
         } else {
-            userName = dataSource[item.userId]?.name || item.userId
+            displayedName = dataSource[item.userId]?.name || item.userId;
         }
-    
+
         return (
             <TouchableOpacity 
                 style={styles.postContainer}
@@ -51,16 +56,15 @@ const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source }) => {
             >
                 <View style={styles.header}>
                     <Image source={item.userAvatar} style={styles.avatar} />
-                    <Text>{userName}</Text>
+                    <Text>{displayedName}</Text>
                 </View>
                 <Image source={item.image} style={styles.postImage} />
                 <Text style={styles.caption}>{item.caption}</Text>
             </TouchableOpacity>
-        )
+        );
     }
-    
 
-    const dataArray = Object.values(data)
+    const dataArray = Object.values(data);
 
     return (
         <FlatList
@@ -70,7 +74,7 @@ const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source }) => {
             renderItem={renderItem}
             keyExtractor={(item) => item.id}
         />
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -104,6 +108,10 @@ const styles = StyleSheet.create({
         fontSize: 15,
         margin: 5,
     }
-})
+});
 
-export default UserPostThumbnail
+const mapStateToProps = (state: RootState) => ({
+    username: state.profile.username,
+});
+
+export default connect(mapStateToProps)(UserPostThumbnail);

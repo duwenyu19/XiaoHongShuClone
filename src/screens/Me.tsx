@@ -1,84 +1,87 @@
-import React, { useContext, useState } from 'react'
-import { 
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  ImageBackground,
-  TextInput,
-} from 'react-native'
-import { MeScreenNavigationProp } from '../utilities/types'
-import MeTopTabNavigator from '../navigators/MeTopTabNavigator'
-import StackButton from '../components/StackButton'
-import RoundSqaureButton from '../components/RoundSquareButton'
-import UserContext from '../utilities/UserContext'
-import genderIcon from '../assets/photos/female-icon.png'
-import userPortrait from '../assets/photos/user-portrait.jpg'
-import settingIcon from '../assets/photos/setting.png'
-import backgroundImage from '../assets/photos/user-background-1.png'
+import React, { useContext, useEffect, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground, TextInput } from 'react-native';
+import { MeScreenNavigationProp } from '../utilities/types';
+import MeTopTabNavigator from '../navigators/MeTopTabNavigator';
+import StackButton from '../components/StackButton';
+import RoundSquareButton from '../components/RoundSquareButton';
+import UserContext from '../utilities/UserContext';
+import femaleGenderIcon from '../assets/photos/female-icon.png';
+import maleGenderIcon from '../assets/photos/male-icon.png';
+import userPortrait from '../assets/photos/user-portrait.jpg';
+import settingIcon from '../assets/photos/setting.png';
+import backgroundImage from '../assets/photos/user-background-1.png';
+import { useIsFocused } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
+import { RootState } from '../reducers/profileReducer';
 
 type MeProps = {
-  navigation: MeScreenNavigationProp
-}
+  navigation: MeScreenNavigationProp;
+};
 
-const Me: React.FC<MeProps> = ({navigation}) => {
-  const { userCount, followersCount } = useContext(UserContext)
+const Me: React.FC<MeProps> = ({ navigation }) => {
+  const { userCount, followersCount } = useContext(UserContext);
+  const isFocused = useIsFocused();
 
-  const [signature, setSignature] = useState("Click here to fill in the profile")
+  const profileData = useSelector((state: RootState) => state.profile);
+  const { username, bio, gender } = profileData;
 
+  const [signature, setSignature] = useState(bio);
+  const [profileName, setProfileName] = useState(username);
+
+  useEffect(() => {
+    if (isFocused) {
+      setProfileName(username);
+      setSignature(bio);
+    }
+  }, [isFocused, username, bio]);
 
   return (
     <View style={styles.container}>
       <ImageBackground source={backgroundImage} style={styles.backgroundContainer}>
-        
         <View style={styles.headerContainer}>
           <Image style={styles.profileImage} source={userPortrait} />
-          <Text style={styles.profileName}>Money</Text>
+          <Text style={styles.profileName}>{profileName}</Text>
         </View>
 
-        <TextInput 
+        <TextInput
           style={styles.signatureInput}
           value={signature}
-          onChangeText={text => setSignature(text)}
+          onChangeText={(text) => setSignature(text)}
           placeholder="Click here to fill in the profile"
           placeholderTextColor="#FFFFFF"
         />
 
-        <Image 
-          source={genderIcon}
-          style={styles.genderIcon}
-        />
+        {gender === 'Male' ? (
+          <Image source={maleGenderIcon} style={styles.genderIcon} />
+        ) : (
+          <Image source={femaleGenderIcon} style={styles.genderIcon} />
+        )}
 
         <View style={styles.statsContainer}>
           <StackButton number={userCount.toString()} label="Following" onPress={() => navigation.navigate('MeFollowing')} />
           <StackButton number={followersCount.toString()} label="Followers" onPress={() => navigation.navigate('MeFollowers')} />
           <StackButton number="0" label="Likes & Col" onPress={() => navigation.navigate('LikesAndCol')} />
           <TouchableOpacity style={styles.editProfileButton} onPress={() => navigation.navigate('EditProfile')}>
-            <Text style={[{color: '#FFFFFF'},{fontWeight: 'bold'},{fontSize: 12}]}>Edit Profile</Text>
+            <Text style={[{ color: '#FFFFFF' }, { fontWeight: 'bold' }, { fontSize: 12 }]}>Edit Profile</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.settingButton} onPress={() => navigation.navigate('Settings')}>
-            <Image 
-              source={settingIcon} 
-              style={styles.settingIcon}
-            />
+            <Image source={settingIcon} style={styles.settingIcon} />
           </TouchableOpacity>
         </View>
 
         <View style={styles.buttonContainer}>
-          <RoundSqaureButton label="购物车" onPress={() => navigation.navigate('购物车')} />
-          <RoundSqaureButton label="创作灵感" onPress={() => navigation.navigate('创作灵感')} />
-          <RoundSqaureButton label="浏览记录" onPress={() => navigation.navigate('浏览记录')} />
+          <RoundSquareButton label="购物车" onPress={() => navigation.navigate('购物车')} />
+          <RoundSquareButton label="创作灵感" onPress={() => navigation.navigate('创作灵感')} />
+          <RoundSquareButton label="浏览记录" onPress={() => navigation.navigate('浏览记录')} />
         </View>
 
         <View style={styles.topTabContainer}>
-          <MeTopTabNavigator/>
+          <MeTopTabNavigator />
         </View>
-        
       </ImageBackground>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -114,7 +117,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   settingIcon: {
-    width:16,
+    width: 16,
     height: 16,
   },
   buttonContainer: {
@@ -171,6 +174,6 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginBottom: 8,
   },
-})
+});
 
-export default Me
+export default Me;
