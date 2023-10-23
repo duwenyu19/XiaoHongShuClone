@@ -16,7 +16,7 @@ const RoundSqaureButton: React.FC<RoundSqaureButtonProps> = ({label, onPress }) 
 
 const styles = StyleSheet.create({
     rectButton: {
-        padding: 10,
+        padding: 5,
         borderWidth: 1,
         borderColor: '#ccc',
         borderRadius: 8,
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginHorizontal: 5,
-        marginVertical: 0,
+        marginVertical: 5,
     },
     text: {
         fontWeight: 'bold',

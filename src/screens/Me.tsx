@@ -167,8 +167,8 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   genderIcon: {
-    width: 15,
-    height: 15,
+    width: 25,
+    height: 25,
     resizeMode: 'contain',
     marginTop: 8,
     marginLeft: 15,
