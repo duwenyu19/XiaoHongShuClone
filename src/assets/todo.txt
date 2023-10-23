@@ -34,14 +34,15 @@ and add related pages to their folder (check)
 
 9.3 Add a full screen of following users, pull data from an array (check)
 
-(Add a comment line showing each part of the component in return())
+*** (Add a comment line showing each part of the component in return())
 ({/* Search bar */})
 
 10. Add a profile page for Symba, add a navigation to it from Following (check)
 
 11. Add actual posts to home, one for Symba, one for Money (check)
 
-12. Add logic for EditProfile *
+**** 12. Add logic for EditProfile, add Like Post Logic (add like button that can change color
+, add liked posts to Likes page)
 
 13. Add a backend (MERN) for posts * (Oct 19)
 
