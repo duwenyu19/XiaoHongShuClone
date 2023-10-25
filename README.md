@@ -1,79 +1,54 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# XiaoHongShuClone
 
-# Getting Started
+[XiaoHongShuClone Simulator Demo](https://drive.google.com/drive/folders/1PFJBzeVxJfEIu_y50pnB4NOLfzCTwwW6?usp=sharing)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Steps to start the application:
 
-## Step 1: Start the Metro Server
+1. Please have Xcode installed together with the newest simulator for IOS.
+2. Inside the terminal, `cd` to `XiaoHongShuClone` repo directory.
+3. Run command line: `npx react-native run-ios`.
+4. Wait for Metro to boot up, the simulator will pop up, and the application will start running.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## How to navigate within the application:
 
-To start Metro, run the following command from the _root_ of your React Native project:
+1. The main navigator is the bottom tab navigator, containing a **Home page** and a **Me page**.
+2. The default ‘index’ page is the **Explore page** in the Home page, nested within a top tab navigator inside the Home page.
+3. Together with the Explore page, there is the **Follow page** and the **Nearby page**, all handled by the top tab navigator inside the Home page.
+4. In the Explore page, you will find a list of User post thumbnails. Once clicked, it will navigate to the user post detail page (UserPostGeneral), displaying key information (I put the flat list logic inside user post thumbnail component).
+5. Same navigation logic is applied to the Follow page, with the difference of showing posts coming from the user that the current user is following (The detailed data is hard coded in the file usersDataPostFollowing, same users compared to the usersDataFollowing but with more properties).
+6. The Nearby page was only added to the navigator without any content.
+7. Click on the Me tab in the bottom tab navigator will navigate us to the Me page.
+8. This page shows the details about the current user. Username, Bio, and Gender are at their default value.
+9. Click on the Following button will navigate us to a list of users’ simplified name tags showing key information.
+10. The top search bar enables us to filter out users by searching key characters in their usernames.
+11. Click on the name tag will navigate to user detail page.
+12. The Followers page has the same product logic with the Following page.
+13. The Likes & Col page and the Settings page are only added to the Me page navigator, with no meaningful content.
+14. There is a top tab navigator embedded within the Me page, showing four tabs, Posts, Tag, Collects, and Likes. Tag, Collects, and Likes pages are only added to the navigation logic. The Posts tab shows a list of current users’ posts.
+15. Click on the posts will navigate again to the user post detail page.
+16. The Edit Profile button will navigate us to a page where we could change the user profile information.
+17. Feel free to change anything you like. Be noted that if you change the Username, Bio, and Gender, the changes will be applied to the Me page as well as the post thumbnails in the Posts tab. Enjoy the app^^.
 
-```bash
-# using npm
-npm start
+## Progress Overview:
 
-# OR using Yarn
-yarn start
-```
+1. I started off with creating the framework for the navigation logic for both the Home page and the Me page, to have a bottom tab navigator as the main navigator that holds the Home and Me page.
+2. Since both Home and Me pages will have many other pages to handle, they both need a stack navigator to handle all the pages. These two navigators are the HomeNavigator and the MeNavigator.
+3. Then I started to create all the necessary pages for the Me page and put them as simple buttons. The main focus was to complete the navigation logic first. So I put all the pages in the MeScreens folder for the MeNavigators to handle. The same for the Home pages, but for now, there are only three tabs for the Home page.
+4. Added a top tab navigation bar for the Home page and put Explore as the default index page. Then I started to focus on the Me page logics and contents.
+5. Modified the layout of the Me page to look like the targeted app’s Me page layout. Added another top tab navigator to the Me page. The buttons that contain a repetitive pattern are extracted out as customized components.
+6. Started adding content to the Following and Followers page. Added dummy data to be displayed. Added UserProfileGeneral page to read and display detailed information.
+7. Encountered an issue of only showing Following users’ data no matter visited from Following or Followers page. Added a source prop to identify which page it was navigated from.
+8. Encountered issues with the stack navigator. Resolved by adding another stack navigator for the Following and Followers page. Nested their navigators into the MeNavigator.
+9. Added a UserContext to resolve the issue of the number of Following and Followers buttons not refreshing when adding new user data.
+10. Moving on to the Home page, I decided to make a post feature that displays post thumbnails in the Explore and Follow page. Added UserPostGeneral page to display post details, with a source prop to decide to read data from Follow or Explore. Added the UserPostGeneral to be handled by the HomeNavigator. Added another source from the Me page so the UserPostGeneral will display thumbnails of the current user’s posts.
+11. Finally, to complete the functionality for the EditProfile page, Redux was introduced to store the input data. Encountered an issue with the Me page not able to re-render when there’s a change in user information in the EditProfile page. Tried userFocusEffect but ended up with an infinite loop. Resolved by using useIsFocused from react navigation.
+12. Encountered a problem with the format of the previously created dummy data. Upon changing the user’s Username in the EditProfile page, the Username on the Post thumbnail showing in the Posts tab will not change since the data was hard coded. Resolved by adding the data file and thumbnail component as the edit profile reducer’s listener. It will change the username inside the dummy data object once there is a state change from the EditProfile page.
 
-## Step 2: Start your Application
+## Potential Issue and possible improvement:
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+1. Prettier and ESLint conflict.
+2. Swiping gesture with no listeners for reanimation.
+3. Tab bar indicator default motion is not very smooth. Tried to make the indicator appear directly below the focus tab by calculating the relative position, but the calculation delays the animation. I ended up using the default sliding animation, but if I jump from the leftmost tab to the rightmost tab, the sliding animation is off.
+4. No length restriction for user input.
+5. Residual dummy data structure that led to unnecessary complexity of code in the later stage.
+6. Did not extract Edit Profile state as a Redux slice, leading to overly complexed listener-action logic.
