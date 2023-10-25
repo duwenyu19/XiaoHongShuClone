@@ -1,13 +1,13 @@
-import React from 'react'
-import { Image } from 'react-native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import HomeStack from './HomeNavigator'
-import MeStack from './MeNavigator'
-import meIcon from '../assets/photos/user-icon.png'
-import homeIcon from '../assets/photos/home-icon.png'
+import React from 'react';
+import { Image } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeStack from './HomeNavigator';
+import MeStack from './MeNavigator';
+import meIcon from '../assets/photos/user-icon.png';
+import homeIcon from '../assets/photos/home-icon.png';
 
 
-const BottomTab = createBottomTabNavigator()
+const BottomTab = createBottomTabNavigator();
 
 const BottomTabNavigator: React.FC = () => {
   return (
@@ -48,7 +48,7 @@ const BottomTabNavigator: React.FC = () => {
         }}
       />
     </BottomTab.Navigator>
-  )
-}
+  );
+};
 
-export default BottomTabNavigator
+export default BottomTabNavigator;

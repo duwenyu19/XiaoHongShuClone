@@ -1,18 +1,18 @@
-import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
-import Me from '../screens/Me'
-import UserCart from '../screens/MeScreens/UserCart'
-import Browse from '../screens/MeScreens/Browse'
-import History from '../screens/MeScreens/History'
-import LikesAndCol from '../screens/MeScreens/LikesAndCol'
-import EditProfile from '../screens/MeScreens/EditProfile'
-import Setting from '../screens/MeScreens/Setting'
-import FollwoingNavigator from './FollowingNavigator'
-import FollowersNavigator from './FollowersNavigator'
-import UserPostGeneral from '../screens/UserInfo/UserPostGeneral'
-import { MeStackParamList } from '../utilities/types'
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import Me from '../screens/Me';
+import UserCart from '../screens/MeScreens/UserCart';
+import Browse from '../screens/MeScreens/Browse';
+import History from '../screens/MeScreens/History';
+import LikesAndCol from '../screens/MeScreens/LikesAndCol';
+import EditProfile from '../screens/MeScreens/EditProfile';
+import Setting from '../screens/MeScreens/Setting';
+import FollwoingNavigator from './FollowingNavigator';
+import FollowersNavigator from './FollowersNavigator';
+import UserPostGeneral from '../screens/UserInfo/UserPostGeneral';
+import { MeStackParamList } from '../utilities/types';
 
-const MeStack = createStackNavigator<MeStackParamList>()
+const MeStack = createStackNavigator<MeStackParamList>();
 
 const MeNavigator: React.FC = () => {
   return (
@@ -32,7 +32,7 @@ const MeNavigator: React.FC = () => {
       <MeStack.Screen name="Settings" component={Setting} />
       <MeStack.Screen name="UserPostGeneral" component={UserPostGeneral} />
     </MeStack.Navigator>
-  )
-}
+  );
+};
 
-export default MeNavigator
+export default MeNavigator;

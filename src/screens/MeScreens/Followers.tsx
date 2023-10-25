@@ -1,22 +1,22 @@
-import React, {useContext, useEffect, useState} from 'react'
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
-import { usersDataFollowers } from '../../utilities/usersDataFollowers'
-import { FollowersScreenNavigationProp } from '../../utilities/types'
-import UserContext from '../../utilities/UserContext'
+import React, {useContext, useEffect, useState} from 'react';
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import { usersDataFollowers } from '../../utilities/usersDataFollowers';
+import { FollowersScreenNavigationProp } from '../../utilities/types';
+import UserContext from '../../utilities/UserContext';
 
 type FollowersProps = {
-  navigation: FollowersScreenNavigationProp
+  navigation: FollowersScreenNavigationProp;
 }
 
 const Followers: React.FC<FollowersProps> = ({navigation}) => {
     
-    const { setFollowersCount } = useContext(UserContext)
-    const [searchText, setSearchText] = useState('')
-    const [filteredUsers, setFilteredUsers] = useState(Object.values(usersDataFollowers))
+    const { setFollowersCount } = useContext(UserContext);
+    const [searchText, setSearchText] = useState('');
+    const [filteredUsers, setFilteredUsers] = useState(Object.values(usersDataFollowers));
 
     useEffect(() => {
         setFollowersCount(Object.keys(usersDataFollowers).length)
-    }, [])
+    }, []);
 
     useEffect(() => {
         if (searchText.trim() === '') {
@@ -27,7 +27,7 @@ const Followers: React.FC<FollowersProps> = ({navigation}) => {
             );
             setFilteredUsers(filtered)
         }
-    }, [searchText])
+    }, [searchText]);
 
     return (
         <View style={styles.container}>
@@ -61,8 +61,8 @@ const Followers: React.FC<FollowersProps> = ({navigation}) => {
                 keyExtractor={item => item.id}
             />
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -99,6 +99,6 @@ const styles = StyleSheet.create({
         color: 'gray',
         fontSize: 14,
     },
-})
+});
 
-export default Followers
+export default Followers;

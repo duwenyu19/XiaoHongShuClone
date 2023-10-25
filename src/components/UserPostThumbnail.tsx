@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
-import { FlatList, Image, StyleSheet, Text, View, ImageSourcePropType } from 'react-native'
-import { usersDataPostFollowing } from '../utilities/usersDataPostFollowing'
-import { UserPost, usersDataPostExplore } from '../utilities/usersDataPostExplore'
-import { usersDataPostMe } from '../utilities/usersDataPostMe'
-import { TouchableOpacity } from 'react-native'
-import { HomeScreenNavigationProp } from '../utilities/types'
-import { MeScreenNavigationProp } from '../utilities/types'
+import React, { useState } from 'react';
+import { FlatList, Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { usersDataPostFollowing } from '../utilities/usersDataPostFollowing';
+import { UserPost, usersDataPostExplore } from '../utilities/usersDataPostExplore';
+import { usersDataPostMe } from '../utilities/usersDataPostMe';
+import { HomeScreenNavigationProp, MeScreenNavigationProp } from '../utilities/types';
 import { connect } from 'react-redux';
 import { RootState } from '../reducers/profileReducer';
 
@@ -62,7 +60,7 @@ const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source, username
                 <Text style={styles.caption}>{item.caption}</Text>
             </TouchableOpacity>
         );
-    }
+    };
 
     const dataArray = Object.values(data);
 
@@ -75,7 +73,7 @@ const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source, username
             keyExtractor={(item) => item.id}
         />
     );
-}
+};
 
 const styles = StyleSheet.create({
     postContainer: {
@@ -107,7 +105,7 @@ const styles = StyleSheet.create({
     caption: {
         fontSize: 15,
         margin: 5,
-    }
+    },
 });
 
 const mapStateToProps = (state: RootState) => ({

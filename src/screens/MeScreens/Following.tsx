@@ -1,22 +1,22 @@
-import React, {useContext, useEffect, useState} from 'react'
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native'
-import { usersDataFollowing } from '../../utilities/usersDataFollowing'
-import { FollowingScreenNavigationProp } from '../../utilities/types'
-import UserContext from '../../utilities/UserContext'
+import React, {useContext, useEffect, useState} from 'react';
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import { usersDataFollowing } from '../../utilities/usersDataFollowing';
+import { FollowingScreenNavigationProp } from '../../utilities/types';
+import UserContext from '../../utilities/UserContext';
 
 type FollowingProps = {
-  navigation: FollowingScreenNavigationProp
+  navigation: FollowingScreenNavigationProp;
 }
 
 const Following: React.FC<FollowingProps> = ({navigation}) => {
     
-    const { setUserCount } = useContext(UserContext)
-    const [searchText, setSearchText] = useState('')
-    const [filteredUsers, setFilteredUsers] = useState(Object.values(usersDataFollowing))
+    const { setUserCount } = useContext(UserContext);
+    const [searchText, setSearchText] = useState('');
+    const [filteredUsers, setFilteredUsers] = useState(Object.values(usersDataFollowing));
 
     useEffect(() => {
         setUserCount(Object.keys(usersDataFollowing).length)
-    }, [])
+    }, []);
 
     useEffect(() => {
         if (searchText.trim() === '') {
@@ -27,7 +27,7 @@ const Following: React.FC<FollowingProps> = ({navigation}) => {
             );
             setFilteredUsers(filtered);
         }
-    }, [searchText])
+    }, [searchText]);
 
     return (
         <View style={styles.container}>
@@ -61,8 +61,8 @@ const Following: React.FC<FollowingProps> = ({navigation}) => {
                 keyExtractor={item => item.id}
             />
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -99,6 +99,6 @@ const styles = StyleSheet.create({
         color: 'gray',
         fontSize: 14,
     },
-})
+});
 
-export default Following
+export default Following;

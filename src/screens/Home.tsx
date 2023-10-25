@@ -1,11 +1,11 @@
-import React from 'react'
-import { View, StyleSheet } from 'react-native'
-import { HomeScreenNavigationProp } from '../utilities/types'
-import HomeTopTabNavigator from '../navigators/HomeTopTabNavigator'
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { HomeScreenNavigationProp } from '../utilities/types';
+import HomeTopTabNavigator from '../navigators/HomeTopTabNavigator';
 
 type HomeProps = {
-  navigation: HomeScreenNavigationProp
-}
+  navigation: HomeScreenNavigationProp;
+};
 
 
 const Home: React.FC<HomeProps> = ({navigation}) => {
@@ -15,8 +15,8 @@ const Home: React.FC<HomeProps> = ({navigation}) => {
         <HomeTopTabNavigator />
       </View>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 10,
     backgroundColor: 'white'
-  }
-})
+  },
+});
 
-export default Home
+export default Home;

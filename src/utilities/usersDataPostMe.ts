@@ -1,14 +1,14 @@
-import { ImageSourcePropType } from 'react-native'
+import { ImageSourcePropType } from 'react-native';
 
 export type UserPost = {
-    id: string
-    userId: string
-    image: ImageSourcePropType
-    caption: string
-    userAvatar: ImageSourcePropType
-    name?: string
-    description?: string
-}
+    id: string;
+    userId: string;
+    image: ImageSourcePropType;
+    caption: string;
+    userAvatar: ImageSourcePropType;
+    name?: string;
+    description?: string;
+};
 
 export let usersDataPostMe: Record<string, UserPost>;
 
@@ -69,5 +69,4 @@ export function initializeUsersDataPostMe(initialName: string) {
             userAvatar: require('../assets/photos/user-portrait.jpg')
         }
     };
-}
-
+};

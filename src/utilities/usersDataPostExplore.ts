@@ -1,14 +1,14 @@
-import { ImageSourcePropType } from 'react-native'
+import { ImageSourcePropType } from 'react-native';
 
 export type UserPost = {
-    id: string
-    userId: string
-    image: ImageSourcePropType
-    caption: string
-    userAvatar: ImageSourcePropType
-    name?: string
-    description?: string
-}
+    id: string;
+    userId: string;
+    image: ImageSourcePropType;
+    caption: string;
+    userAvatar: ImageSourcePropType;
+    name?: string;
+    description?: string;
+};
 
 export const usersDataPostExplore: Record<string, UserPost> = {
     'post1': {
@@ -65,4 +65,4 @@ export const usersDataPostExplore: Record<string, UserPost> = {
         caption: '最新的冒险故事。',
         userAvatar: require('../assets/photos/user-portrait-7.jpg')
     },
-}
+};

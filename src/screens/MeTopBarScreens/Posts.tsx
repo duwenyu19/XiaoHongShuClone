@@ -1,8 +1,8 @@
-import React from 'react'
-import { View, StyleSheet } from 'react-native'
-import UserPostThumbnail from '../../components/UserPostThumbnail'
-import { MeScreenNavigationProp } from '../../utilities/types'
-import { usersDataPostMe } from '../../utilities/usersDataPostMe'
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import UserPostThumbnail from '../../components/UserPostThumbnail';
+import { MeScreenNavigationProp } from '../../utilities/types';
+import { usersDataPostMe } from '../../utilities/usersDataPostMe';
 
 type PostProps = {
   navigation: MeScreenNavigationProp;
@@ -13,8 +13,8 @@ const Post: React.FC<PostProps> = ({navigation}) => {
     <View style={styles.container}>
       <UserPostThumbnail data={usersDataPostMe} source={'me'} navigation={navigation}/>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -27,6 +27,6 @@ const styles = StyleSheet.create({
       margin: 20,
       textAlign: 'center'
     }
-})
+});
 
-export default Post
+export default Post;

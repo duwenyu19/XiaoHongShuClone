@@ -1,4 +1,4 @@
-import { ProfileData } from "../screens/MeScreens/EditProfile"
+import { ProfileData } from "../screens/MeScreens/EditProfile";
 import { usersDataPostMe, initializeUsersDataPostMe } from "../utilities/usersDataPostMe";
 
 export type RootState = {

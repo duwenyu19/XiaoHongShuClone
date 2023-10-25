@@ -1,10 +1,10 @@
-import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
-import FollowingDetail from '../screens/MeScreens/Following'
-import UserProfileGeneral from '../screens/UserInfo/UserProfileGeneral'
-import { FollowingStackParamList } from '../utilities/types'
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import FollowingDetail from '../screens/MeScreens/Following';
+import UserProfileGeneral from '../screens/UserInfo/UserProfileGeneral';
+import { FollowingStackParamList } from '../utilities/types';
 
-const FollowingStack = createStackNavigator<FollowingStackParamList>()
+const FollowingStack = createStackNavigator<FollowingStackParamList>();
 
 const FollowingNavigator: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const FollowingNavigator: React.FC = () => {
       <FollowingStack.Screen name="FollowingDetail" component={FollowingDetail} />
       <FollowingStack.Screen name="UserProfileGeneral" component={UserProfileGeneral} />
     </FollowingStack.Navigator>
-  )
-}
+  );
+};
 
-export default FollowingNavigator
+export default FollowingNavigator;

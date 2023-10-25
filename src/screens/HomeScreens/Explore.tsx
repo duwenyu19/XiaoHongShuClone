@@ -1,11 +1,11 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import UserPostThumbnail from '../../components/UserPostThumbnail'
-import { usersDataPostExplore } from '../../utilities/usersDataPostExplore'
-import { HomeScreenNavigationProp } from '../../utilities/types'
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import UserPostThumbnail from '../../components/UserPostThumbnail';
+import { usersDataPostExplore } from '../../utilities/usersDataPostExplore';
+import { HomeScreenNavigationProp } from '../../utilities/types';
 
 type ExploreProps = {
-  navigation: HomeScreenNavigationProp
+  navigation: HomeScreenNavigationProp;
 }
 
 const Explore: React.FC<ExploreProps> = ({navigation}) => {
@@ -13,8 +13,8 @@ const Explore: React.FC<ExploreProps> = ({navigation}) => {
     <View style={styles.container}>
       <UserPostThumbnail data={usersDataPostExplore} source={'explore'} navigation={navigation} />
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       margin: 20,
       textAlign: 'center'
-    }
-})
+    },
+});
 
-export default Explore
+export default Explore;

@@ -1,18 +1,18 @@
-import React from 'react'
-import { Text, TouchableOpacity, StyleSheet } from 'react-native'
+import React from 'react';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 interface RoundSqaureButtonProps {
     label: string
     onPress: () => void
-  }
+  };
 
 const RoundSqaureButton: React.FC<RoundSqaureButtonProps> = ({label, onPress }) => {
   return (
     <TouchableOpacity style={styles.rectButton} onPress={onPress}>
         <Text style={styles.text} >{label}</Text>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
     rectButton: {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     text: {
         fontWeight: 'bold',
         color: '#FFFFFF'
-    }
-})
+    },
+});
 
-export default RoundSqaureButton
+export default RoundSqaureButton;

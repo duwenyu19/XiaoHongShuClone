@@ -1,13 +1,13 @@
-import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
-import { RouteProp } from '@react-navigation/native'
-import { HomeStackParamList } from '../../utilities/types'
-import { UserPost, usersDataPostExplore } from '../../utilities/usersDataPostExplore'
-import { usersDataPostFollowing } from '../../utilities/usersDataPostFollowing'
-import { usersDataPostMe } from '../../utilities/usersDataPostMe'
+import React from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
+import { RouteProp } from '@react-navigation/native';
+import { HomeStackParamList } from '../../utilities/types';
+import { UserPost, usersDataPostExplore } from '../../utilities/usersDataPostExplore';
+import { usersDataPostFollowing } from '../../utilities/usersDataPostFollowing';
+import { usersDataPostMe } from '../../utilities/usersDataPostMe';
 
 type UserPostGeneralProps = {
-    route: RouteProp<HomeStackParamList, 'UserPostGeneral'>
+    route: RouteProp<HomeStackParamList, 'UserPostGeneral'>;
   };
   
   const UserPostGeneral: React.FC<UserPostGeneralProps> = ({ route }) => {
@@ -25,8 +25,8 @@ type UserPostGeneralProps = {
             dataSource = usersDataPostMe;
             break;
     }
-    
-    const userData = dataSource[post.id]
+
+    const userData = dataSource[post.id];
     
     return (
       <View style={styles.container}>
@@ -37,8 +37,8 @@ type UserPostGeneralProps = {
         <Image source={post.image} style={styles.postImage} />
         <Text style={styles.caption}>{post.caption}</Text>
       </View>
-    )
-  }
+    );
+  };
   
   const styles = StyleSheet.create({
     container: {
@@ -70,6 +70,6 @@ type UserPostGeneralProps = {
       fontSize: 16,
       margin: 10,
     },
-  })
+  });
   
-  export default UserPostGeneral
+  export default UserPostGeneral;

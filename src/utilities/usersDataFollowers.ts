@@ -1,9 +1,9 @@
 type UserData = {
-    id: string
-    name: string
-    description: string
-    image: any
-}
+    id: string;
+    name: string;
+    description: string;
+    image: any;
+};
 
 export const usersDataFollowers: Record<string, UserData> = {
     '1': {
@@ -72,4 +72,4 @@ export const usersDataFollowers: Record<string, UserData> = {
       description: '舞者，用身体讲述动人的故事',
       image: require('../assets/photos/user-portrait-7.jpg')
     },
-}
+};

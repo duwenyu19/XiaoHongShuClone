@@ -1,11 +1,11 @@
-import React from 'react'
-import { Text, TouchableOpacity, StyleSheet } from 'react-native'
+import React from 'react';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 interface StackButtonProps {
-    number: string
-    label: string
-    onPress: () => void
-  }
+    number: string;
+    label: string;
+    onPress: () => void;
+  };
 
 const StackButton: React.FC<StackButtonProps> = ({ number, label, onPress }) => {
   return (
@@ -13,8 +13,8 @@ const StackButton: React.FC<StackButtonProps> = ({ number, label, onPress }) => 
       <Text style={styles.statText}>{number}</Text>
       <Text style={styles.statText}>{label}</Text>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
     statButton: {
@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#FFFFFF',
     },
-})
+});
 
-export default StackButton
+export default StackButton;

@@ -1,21 +1,21 @@
-import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
-import { usersDataFollowing } from '../../utilities/usersDataFollowing'
-import { usersDataFollowers } from '../../utilities/usersDataFollowers'
-import { NavigationProp, RouteProp } from '@react-navigation/native'
-import { FollowersStackParamList, FollowingStackParamList } from '../../utilities/types'
+import React from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { usersDataFollowing } from '../../utilities/usersDataFollowing';
+import { usersDataFollowers } from '../../utilities/usersDataFollowers';
+import { NavigationProp, RouteProp } from '@react-navigation/native';
+import { FollowersStackParamList, FollowingStackParamList } from '../../utilities/types';
 
 type UserProfileGeneralProps = {
-  navigation: NavigationProp<FollowingStackParamList> | NavigationProp<FollowersStackParamList>
-  route: RouteProp<FollowingStackParamList, 'UserProfileGeneral'> | RouteProp<FollowersStackParamList, 'UserProfileGeneral'>
-}
+  navigation: NavigationProp<FollowingStackParamList> | NavigationProp<FollowersStackParamList>;
+  route: RouteProp<FollowingStackParamList, 'UserProfileGeneral'> | RouteProp<FollowersStackParamList, 'UserProfileGeneral'>;
+};
 
 
 
 const UserProfileGeneral: React.FC<UserProfileGeneralProps> = ({ route }) => {
-  const { userId, dataSource } = route.params
+  const { userId, dataSource } = route.params;
 
-  let user
+  let user;
   if (dataSource === 'followers') {
     user = usersDataFollowers[userId];
   } else {
@@ -36,8 +36,8 @@ const UserProfileGeneral: React.FC<UserProfileGeneralProps> = ({ route }) => {
       <Text>{user.name}</Text>
       <Text>{user.description}</Text>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         marginBottom: 10,
       },
-})
+});
 
-export default UserProfileGeneral
+export default UserProfileGeneral;
