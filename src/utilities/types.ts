@@ -1,7 +1,30 @@
 import { NavigationProp } from '@react-navigation/native';
-import { UserPost } from './usersDataPostExplore';
-import { UserDataFollowing } from './usersDataFollowing';
-import { UserDataFollowers } from './usersDataFollowers';
+import { ImageSourcePropType } from 'react-native';
+
+export type UserDataFollowers = {
+  id: string;
+  name: string;
+  description: string;
+  image: ImageSourcePropType;
+};
+
+export type UserDataFollowing = {
+  id: string;
+  name: string;
+  description: string;
+  image: ImageSourcePropType;
+};
+
+export type UserPost = {
+  id: string;
+  userId: string;
+  image: ImageSourcePropType;
+  caption: string;
+  userAvatar: ImageSourcePropType;
+  name?: string;
+  description?: string;
+};
+
 
 export type MeStackParamList = {
   MePage: undefined;

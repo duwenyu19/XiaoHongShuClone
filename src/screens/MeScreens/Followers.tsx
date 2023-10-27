@@ -1,8 +1,7 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList } from 'react-native';
 import { usersDataFollowers } from '../../utilities/usersDataFollowers';
 import { FollowersScreenNavigationProp } from '../../utilities/types';
-import UserContext from '../../utilities/UserContext';
 
 type FollowersProps = {
   navigation: FollowersScreenNavigationProp;

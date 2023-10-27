@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { FlatList, Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { usersDataPostFollowing } from '../utilities/usersDataPostFollowing';
-import { UserPost, usersDataPostExplore } from '../utilities/usersDataPostExplore';
+import { usersDataPostExplore } from '../utilities/usersDataPostExplore';
 import { usersDataPostMe } from '../utilities/usersDataPostMe';
-import { HomeScreenNavigationProp, MeScreenNavigationProp } from '../utilities/types';
+import { HomeScreenNavigationProp, MeScreenNavigationProp, UserPost } from '../utilities/types';
 import { connect } from 'react-redux';
 import { RootState } from '../reducers/profileReducer';
 

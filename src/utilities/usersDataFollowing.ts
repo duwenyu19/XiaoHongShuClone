@@ -1,11 +1,4 @@
-import { ImageSourcePropType } from 'react-native';
-
-export type UserDataFollowing = {
-    id: string;
-    name: string;
-    description: string;
-    image: ImageSourcePropType;
-  };
+import { UserDataFollowing } from "./types";
   
 export const usersDataFollowing: Record<string,UserDataFollowing> = {
     '1': {

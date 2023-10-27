@@ -1,14 +1,5 @@
-import { ImageSourcePropType } from 'react-native';
+import { UserPost } from './types';
 
-export type UserPost = {
-    id: string;
-    userId: string;
-    image: ImageSourcePropType;
-    caption: string;
-    userAvatar: ImageSourcePropType;
-    name?: string;
-    description?: string;
-};
 
 export const usersDataPostExplore: Record<string, UserPost> = {
     'post1': {
