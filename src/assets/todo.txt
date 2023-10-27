@@ -1,0 +1,70 @@
+1. Set up stack navigator and bottom tab bar navigator (check)
+
+2. Add functional pages into MeNavigator, add navigation buttons to me page (check)
+  
+    Following
+    Followers
+    Likes
+
+    EditProfile
+    Setting
+       
+    UserCart（购物车）
+    Browse（创作灵感）
+    ViewedPosts（浏览记录）
+
+3. Add functional pages into HomeNavigator, add buttons to home page (check)
+
+4. Consider moving Me and Home page into component as folders, 
+and add related pages to their folder (check)
+
+5. Add Top navigation bar and three tab pages to Home, put them in a folder (check)
+
+6. Add a swiping-to-go-back function to the stack screens (check)
+
+7. Make an in-page tab, for Posts, Tag, Collects, Likes (check)
+
+8. Modify Bottom tab icon and name style (check)
+
+9. Add a scroll view for the following and followers page (check)
+ 
+9.1 Add navigation to different user profile page using user id (check)
+
+9.2 Add search bar to search key word, and best match result will show on the top (check)
+
+9.3 Add a full screen of following users, pull data from an array (check)
+
+*** (Add a comment line showing each part of the component in return())
+({/* Search bar */})
+
+10. Add a profile page for Symba, add a navigation to it from Following (check)
+
+11. Add actual posts to home, one for Symba, one for Money (check)
+
+**** 12. Add logic for EditProfile, add Like Post Logic (add like button that can change color
+, add liked posts to Likes page) (half check)
+
+13. Add a backend (MERN) for posts * (Oct 19)
+
+14. Add error handlers
+
+15. Add a user context to keep track of the number of users from UserData (check)
+
+16. Modify Home navigators logic, remove Follow, Explore, and Nearby from HomeNavigator,
+add a navigator for each page (check)
+
+
+Notes:
+
+1. I tried to make the tab indicator to appear directly below the label instead of shifting, 
+installed tailwind and tried to recalculate the position for each tab, but the speed is very slow,
+I am going to keep the react native default shifting animation for now. If this is of a higher priorotiy,
+I will rework it anytime if needed and will try again to figure out how to improve the speed
+
+2. I was deciding between creating individual stack navigator for each clickable button on 
+Me page or just dump everything in Me stack, and have decided to just put everything in the MeNavigator (MeStack) for now
+
+
+后期：
+分享pop up
+头像侠加号记录日常页面

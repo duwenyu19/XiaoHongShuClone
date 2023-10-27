@@ -1,5 +1,7 @@
 import { NavigationProp } from '@react-navigation/native';
 import { UserPost } from './usersDataPostExplore';
+import { UserDataFollowing } from './usersDataFollowing';
+import { UserDataFollowers } from './usersDataFollowers';
 
 export type MeStackParamList = {
   MePage: undefined;
@@ -20,16 +22,14 @@ export type MeStackParamList = {
 export type FollowingStackParamList = {
   FollowingDetail: undefined;
   UserProfileGeneral: { 
-    userId: string;
-    dataSource: 'followers' | 'following';
+    user: UserDataFollowing;
   };
 };
 
 export type FollowersStackParamList = {
   FollowersDetail: undefined;
   UserProfileGeneral: { 
-    userId: string;
-    dataSource: 'followers' | 'following';
+    user: UserDataFollowers;
   };
 };
 

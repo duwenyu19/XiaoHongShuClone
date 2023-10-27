@@ -1,7 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { usersDataFollowing } from '../../utilities/usersDataFollowing';
-import { usersDataFollowers } from '../../utilities/usersDataFollowers';
 import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { FollowersStackParamList, FollowingStackParamList } from '../../utilities/types';
 
@@ -10,17 +8,8 @@ type UserProfileGeneralProps = {
   route: RouteProp<FollowingStackParamList, 'UserProfileGeneral'> | RouteProp<FollowersStackParamList, 'UserProfileGeneral'>;
 };
 
-
-
 const UserProfileGeneral: React.FC<UserProfileGeneralProps> = ({ route }) => {
-  const { userId, dataSource } = route.params;
-
-  let user;
-  if (dataSource === 'followers') {
-    user = usersDataFollowers[userId];
-  } else {
-    user = usersDataFollowing[userId];
-  }
+  const { user } = route.params;
 
   if (!user) {
     return (

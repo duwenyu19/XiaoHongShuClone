@@ -46,7 +46,7 @@ const Followers: React.FC<FollowersProps> = ({navigation}) => {
                 renderItem={({item}) => (
                     <TouchableOpacity 
                         style={styles.userCard}
-                        onPress={() => navigation.navigate('UserProfileGeneral', { userId: item.id, dataSource: 'followers' })}
+                        onPress={() => navigation.navigate('UserProfileGeneral', { user: item })}
                     >
                         <Image
                             style={styles.userImage}
