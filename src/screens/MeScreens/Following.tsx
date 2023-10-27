@@ -10,13 +10,8 @@ type FollowingProps = {
 
 const Following: React.FC<FollowingProps> = ({navigation}) => {
     
-    const { setUserCount } = useContext(UserContext);
     const [searchText, setSearchText] = useState('');
     const [filteredUsers, setFilteredUsers] = useState(Object.values(usersDataFollowing));
-
-    useEffect(() => {
-        setUserCount(Object.keys(usersDataFollowing).length)
-    }, []);
 
     useEffect(() => {
         if (searchText.trim() === '') {

@@ -10,13 +10,8 @@ type FollowersProps = {
 
 const Followers: React.FC<FollowersProps> = ({navigation}) => {
     
-    const { setFollowersCount } = useContext(UserContext);
     const [searchText, setSearchText] = useState('');
     const [filteredUsers, setFilteredUsers] = useState(Object.values(usersDataFollowers));
-
-    useEffect(() => {
-        setFollowersCount(Object.keys(usersDataFollowers).length)
-    }, []);
 
     useEffect(() => {
         if (searchText.trim() === '') {
