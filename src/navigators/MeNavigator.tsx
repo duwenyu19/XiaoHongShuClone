@@ -25,8 +25,8 @@ const MeNavigator: React.FC = () => {
       <MeStack.Screen name="购物车" component={UserCart} />
       <MeStack.Screen name="创作灵感" component={Browse} />
       <MeStack.Screen name="浏览记录" component={History} />
-      <MeStack.Screen name="MeFollowing" component={FollwoingNavigator} options={{headerShown: false}}/>
-      <MeStack.Screen name="MeFollowers" component={FollowersNavigator} options={{headerShown: false}}/>
+      <MeStack.Screen name="FollowingNavigator" component={FollwoingNavigator} options={{headerShown: false}}/>
+      <MeStack.Screen name="FollowersNavigator" component={FollowersNavigator} options={{headerShown: false}}/>
       <MeStack.Screen name="LikesAndCol" component={LikesAndCol} />
       <MeStack.Screen name="EditProfile" component={EditProfile} />
       <MeStack.Screen name="Settings" component={Setting} />

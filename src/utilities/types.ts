@@ -8,8 +8,8 @@ export type MeStackParamList = {
   购物车: undefined;
   创作灵感: undefined;
   浏览记录: undefined;
-  MeFollowing: undefined;
-  MeFollowers: undefined;
+  FollowingNavigator: undefined;
+  FollowersNavigator: undefined;
   LikesAndCol: undefined;
   EditProfile: undefined;
   Settings: undefined;
