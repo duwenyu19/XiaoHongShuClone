@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { NavigationProp, RouteProp } from '@react-navigation/native';
-import { FollowersStackParamList, FollowingStackParamList } from '../../utilities/types';
+import { FollowersScreenNavigationProp, FollowersStackParamList, FollowingScreenNavigationProp, FollowingStackParamList } from '../../utilities/types';
 
 type UserProfileGeneralProps = {
-  navigation: NavigationProp<FollowingStackParamList> | NavigationProp<FollowersStackParamList>;
+  navigation: FollowingScreenNavigationProp | FollowersScreenNavigationProp;
   route: RouteProp<FollowingStackParamList, 'UserProfileGeneral'> | RouteProp<FollowersStackParamList, 'UserProfileGeneral'>;
 };
 
