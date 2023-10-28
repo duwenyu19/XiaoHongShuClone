@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
-import { HomeStackParamList } from '../../utilities/types';
-import { UserPost, usersDataPostExplore } from '../../utilities/usersDataPostExplore';
+import { HomeStackParamList, UserPost } from '../../utilities/types';
+import { usersDataPostExplore } from '../../utilities/usersDataPostExplore';
 import { usersDataPostFollowing } from '../../utilities/usersDataPostFollowing';
 import { usersDataPostMe } from '../../utilities/usersDataPostMe';
 

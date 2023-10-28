@@ -1,6 +1,5 @@
 import { UserPost } from './types';
 
-
 export const usersDataPostExplore: Record<string, UserPost> = {
     'post1': {
         id: 'post1',

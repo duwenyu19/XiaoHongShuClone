@@ -25,7 +25,6 @@ export type UserPost = {
   description?: string;
 };
 
-
 export type MeStackParamList = {
   MePage: undefined;
   购物车: undefined;
@@ -68,9 +67,6 @@ export type HomeStackParamList = {
 };
 
 export type HomeScreenNavigationProp = NavigationProp<HomeStackParamList, 'HomePage'>;
-
 export type MeScreenNavigationProp = NavigationProp<MeStackParamList, 'MePage'>;
-
 export type FollowingScreenNavigationProp = NavigationProp<FollowingStackParamList, 'FollowingDetail'>;
-
 export type FollowersScreenNavigationProp = NavigationProp<FollowersStackParamList, 'FollowersDetail'>;
