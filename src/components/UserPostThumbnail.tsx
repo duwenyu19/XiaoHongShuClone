@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FlatList, Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { usersDataPostFollowing } from '../utilities/usersDataPostFollowing';
 import { usersDataPostExplore } from '../utilities/usersDataPostExplore';
@@ -6,6 +6,7 @@ import { usersDataPostMe } from '../utilities/usersDataPostMe';
 import { HomeScreenNavigationProp, MeScreenNavigationProp, UserPost } from '../utilities/types';
 import { connect } from 'react-redux';
 import { RootState } from '../reducers/profileReducer';
+import UserContext from '../utilities/UserContext';
 
 interface Props {
     data: Record<string, UserPost>;
@@ -15,7 +16,10 @@ interface Props {
 }
 
 const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source, username }) => {
-    const [numColumns, setNumColumns] = useState(2);
+    const { dimensions } = useContext(UserContext);
+    const [numColumns, setNumColumns] = useState(dimensions.width > 600 ? 3 : 2);
+    const styles = getStyles(dimensions);
+    
 
     let dataSource: Record<string, UserPost>;
     switch (source) {
@@ -75,36 +79,36 @@ const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source, username
     );
 };
 
-const styles = StyleSheet.create({
+const getStyles = (dimensions: { width: any; height?: number; }) => StyleSheet.create({
     postContainer: {
-        margin: 5,
+        margin: dimensions.width * 0.0133,
         flex: 1 / 2,
-        padding: 5,
+        padding: dimensions.width * 0.0133,
         borderColor: '#000000',
-        borderWidth: 1,
+        borderWidth: dimensions.width * 0.00267,
     },
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 10,
+        padding: dimensions.width * 0.0267,
     },
     avatar: {
-        width: 40,
-        height: 40,
-        borderRadius: 20,
-        marginRight: 10,
+        width: dimensions.width * 0.1067,
+        height: dimensions.width * 0.1067,
+        borderRadius: dimensions.width * 0.0533,
+        marginRight: dimensions.width * 0.0267,
     },
     postImage: {
-        width: '100%',
-        height: 250,
+        width: "100%",
+        height: dimensions.width * 0.66666,
         resizeMode: 'cover',
-        marginBottom: 5,
+        marginBottom: dimensions.width * 0.0133,
         borderColor: '#000000',
-        borderWidth: 1,
+        borderWidth: dimensions.width * 0.00267,
     },
     caption: {
-        fontSize: 15,
-        margin: 5,
+        fontSize: dimensions.width * 0.04,
+        margin: dimensions.width * 0.0133,
     },
 });
 

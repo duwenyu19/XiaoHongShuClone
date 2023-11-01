@@ -5,6 +5,7 @@ type UserContextType = {
   setUserCount: (count: number) => void;
   followersCount: number;
   setFollowersCount: (count: number) => void;
+  dimensions: {width: number, height: number},
 };
 
 const UserContext = createContext({
@@ -12,6 +13,7 @@ const UserContext = createContext({
   setUserCount: (count: number) => {},
   followersCount: 0,
   setFollowersCount: (count: number) => {},
+  dimensions: {width: 0, height: 0}
 });
 
 export default UserContext;

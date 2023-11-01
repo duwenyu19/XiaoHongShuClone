@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useWindowDimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import BottomTabNavigator from './src/navigators/BottomTabNavigator';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -10,6 +11,7 @@ import store from './src/stores';
 import { Provider } from 'react-redux';
 
 const App: React.FC = () => {
+  const dimensions = useWindowDimensions();
   const [userCount, setUserCount] = useState(0);
   const [followersCount, setFollowersCount] = useState(0);
 
@@ -19,7 +21,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ userCount, setUserCount, followersCount, setFollowersCount }}>
+    <UserContext.Provider value={{ userCount, setUserCount, followersCount, setFollowersCount, dimensions }}>
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
           <BottomTabNavigator />
