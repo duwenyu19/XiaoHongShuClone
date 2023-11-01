@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import UserContext from '../utilities/UserContext';
 
 interface RoundSqaureButtonProps {
     label: string
@@ -7,6 +8,9 @@ interface RoundSqaureButtonProps {
   };
 
 const RoundSqaureButton: React.FC<RoundSqaureButtonProps> = ({label, onPress }) => {
+  const { dimensions } = useContext(UserContext);
+  const styles = getStyles(dimensions);
+
   return (
     <TouchableOpacity style={styles.rectButton} onPress={onPress}>
         <Text style={styles.text} >{label}</Text>
@@ -14,22 +18,24 @@ const RoundSqaureButton: React.FC<RoundSqaureButtonProps> = ({label, onPress }) 
   );
 };
 
-const styles = StyleSheet.create({
+const getStyles = (dimensions: { width: number; height: number }) => {
+  return StyleSheet.create({
     rectButton: {
-        padding: 5,
-        borderWidth: 1,
+        padding: dimensions.width * 0.0133,
+        borderWidth: dimensions.width * 0.00267,
         borderColor: '#ccc',
-        borderRadius: 8,
+        borderRadius: dimensions.width * 0.0213,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginHorizontal: 5,
-        marginVertical: 5,
+        marginHorizontal: dimensions.width * 0.0133,
+        marginVertical: dimensions.height * 0.0075,
     },
     text: {
         fontWeight: 'bold',
         color: '#FFFFFF'
     },
-});
+  });
+};
 
 export default RoundSqaureButton;
