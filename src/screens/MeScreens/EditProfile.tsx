@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { updateProfileData } from '../../actions/profileActions';
 import RNPickerSelect from 'react-native-picker-select';
+import UserContext from '../../utilities/UserContext';
 
 export interface ProfileData {
   username: string;
@@ -21,6 +22,8 @@ interface EditProfileProps {
 }
 
 const EditProfile: React.FC<EditProfileProps> = ({ profileData, updateProfileData }) => {
+  const { dimensions } = useContext(UserContext);
+  const styles = getStyles(dimensions);
   const [localProfileData, setLocalProfileData] = useState<ProfileData>(profileData);
 
   const handleInputChange = (field: keyof ProfileData, value: string) => {
@@ -34,25 +37,25 @@ const EditProfile: React.FC<EditProfileProps> = ({ profileData, updateProfileDat
 
   const pickerSelectStyles = StyleSheet.create({
     inputIOS: {
-      fontSize: 16,
-      paddingVertical: 12,
-      paddingHorizontal: 10,
-      borderWidth: 1,
+      fontSize: dimensions.width * 0.04266,
+      paddingVertical: dimensions.width * 0.032,
+      paddingHorizontal: dimensions.width * 0.02666,
+      borderWidth: dimensions.width * 0.00266,
       borderColor: 'gray',
-      borderRadius: 4,
+      borderRadius: dimensions.width * 0.01066,
       color: 'white',
-      paddingRight: 30,
+      paddingRight: dimensions.width * 0.08,
       backgroundColor: 'gray',
     },
     inputAndroid: {
-      fontSize: 16,
-      paddingHorizontal: 10,
-      paddingVertical: 8,
-      borderWidth: 0.5,
+      fontSize: dimensions.width * 0.04266,
+      paddingHorizontal: dimensions.width * 0.02666,
+      paddingVertical: dimensions.width * 0.02133,
+      borderWidth: dimensions.width * 0.00133,
       borderColor: 'gray',
-      borderRadius: 8,
+      borderRadius: dimensions.width * 0.02133,
       color: 'white',
-      paddingRight: 30,
+      paddingRight: dimensions.width * 0.08,
       backgroundColor: 'gray',
     },
   });
@@ -122,23 +125,25 @@ const EditProfile: React.FC<EditProfileProps> = ({ profileData, updateProfileDat
   );
 };
 
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    padding: 10,
-    justifyContent: 'center',
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 5,
-    padding: 10,
-  },
-});
+const getStyles = (dimensions: { width: number; height: number }) => {
+  return StyleSheet.create({
+    scrollView: {
+      flex: 1,
+    },
+    container: {
+      flex: 1,
+      padding: dimensions.width * 0.0266,
+      justifyContent: 'center',
+    },
+    input: {
+      height: dimensions.width * 0.10666,
+      borderColor: 'gray',
+      borderWidth: 1,
+      marginBottom: dimensions.width * 0.01333,
+      padding: dimensions.width * 0.0266,
+    },
+  });
+};
 
 const mapStateToProps = (state: any) => {
   return {

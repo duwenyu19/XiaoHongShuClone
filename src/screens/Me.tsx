@@ -13,13 +13,16 @@ import backgroundImage from '../assets/photos/user-background-1.png';
 import { useIsFocused } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../reducers/profileReducer';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 type MeProps = {
   navigation: MeScreenNavigationProp;
 };
 
 const Me: React.FC<MeProps> = ({ navigation }) => {
-  const { userCount, followersCount } = useContext(UserContext);
+  const insets = useSafeAreaInsets();
+  const { userCount, followersCount, dimensions } = useContext(UserContext);
+  const styles = getStyles(dimensions);
   const isFocused = useIsFocused();
 
   const profileData = useSelector((state: RootState) => state.profile);
@@ -38,7 +41,7 @@ const Me: React.FC<MeProps> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ImageBackground source={backgroundImage} style={styles.backgroundContainer}>
-        <View style={styles.headerContainer}>
+        <View style={[styles.headerContainer, {paddingTop: insets.top}]}>
           <Image style={styles.profileImage} source={userPortrait} />
           <Text style={styles.profileName}>{profileName}</Text>
         </View>
@@ -83,97 +86,99 @@ const Me: React.FC<MeProps> = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#EDEDED',
-  },
-  backgroundContainer: {
-    flex: 1,
-    width: null,
-    height: null,
-    paddingTop: 30,
-  },
-  headerContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    margin: 20,
-  },
-  profileImage: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    marginRight: 10,
-  },
-  profileName: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
-  },
-  statsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  settingIcon: {
-    width: 16,
-    height: 16,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 5,
-  },
-  editProfileButton: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 2,
-    borderRadius: 10,
-    borderColor: '#FFFFFF',
-    marginRight: 10,
-    marginLeft: 5,
-    paddingVertical: 5,
-    paddingHorizontal: 5,
-  },
-  settingButton: {
-    width: 42,
-    height: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 2,
-    borderRadius: 10,
-    borderColor: '#FFFFFF',
-    marginRight: 5,
-  },
-  topTabContainer: {
-    flex: 1,
-    marginTop: 10,
-  },
-  signatureInput: {
-    width: 300,
-    height: 20,
-    borderColor: '#FFFFFF',
-    color: '#FFFFFF',
-    borderWidth: 1,
-    paddingLeft: 10,
-    marginLeft: 15,
-    marginRight: 15,
-  },
-  signatureText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    marginBottom: 5,
-  },
-  genderIcon: {
-    width: 25,
-    height: 25,
-    resizeMode: 'contain',
-    marginTop: 8,
-    marginLeft: 15,
-    marginBottom: 8,
-  },
-});
+const getStyles = (dimensions: { width: number; height: number }) => {
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#EDEDED',
+    },
+    backgroundContainer: {
+      flex: 1,
+      width: null,
+      height: null,
+    },
+    headerContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      margin: dimensions.width * 0.05333,
+    },
+    profileImage: {
+      width: dimensions.width * 0.16,
+      height: dimensions.width * 0.16,
+      borderRadius: dimensions.width * 0.08,
+      marginRight: dimensions.width * 0.02666,
+    },
+    profileName: {
+      fontSize: dimensions.width * 0.05333,
+      fontWeight: 'bold',
+      color: '#FFFFFF',
+    },
+    statsContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: dimensions.width * 0.02666,
+    },
+    settingIcon: {
+      width: dimensions.width * 0.04266,
+      height: dimensions.width * 0.04266,
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      padding: dimensions.width * 0.01333,
+    },
+    editProfileButton: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: dimensions.width * 0.00533,
+      borderRadius: dimensions.width * 0.02666,
+      borderColor: '#FFFFFF',
+      marginRight: dimensions.width * 0.02666,
+      marginLeft: dimensions.width * 0.01333,
+      paddingVertical: dimensions.width * 0.01333,
+      paddingHorizontal: dimensions.width * 0.01333,
+    },
+    settingButton: {
+      width: dimensions.width * 0.112,
+      height: dimensions.width * 0.08,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderWidth: dimensions.width * 0.00533,
+      borderRadius: dimensions.width * 0.02666,
+      borderColor: '#FFFFFF',
+      marginRight: dimensions.width * 0.01333,
+    },
+    topTabContainer: {
+      flex: 1,
+      marginTop: dimensions.width * 0.02666,
+    },
+    signatureInput: {
+      width: dimensions.width * 0.8,
+      height: dimensions.width * 0.05333,
+      borderColor: '#FFFFFF',
+      color: '#FFFFFF',
+      borderWidth: dimensions.width * 0.00266,
+      paddingLeft: dimensions.width * 0.02666,
+      marginLeft: dimensions.width * 0.04,
+      marginRight: dimensions.width * 0.04,
+    },
+    signatureText: {
+      color: '#FFFFFF',
+      fontSize: dimensions.width * 0.04266,
+      marginBottom: dimensions.width * 0.01333,
+    },
+    genderIcon: {
+      width: dimensions.width * 0.06666,
+      height: dimensions.width * 0.06666,
+      resizeMode: 'contain',
+      marginTop: dimensions.width * 0.02133,
+      marginLeft: dimensions.width * 0.04,
+      marginBottom: dimensions.width * 0.02133,
+    },
+  });
+};
+
 
 export default Me;

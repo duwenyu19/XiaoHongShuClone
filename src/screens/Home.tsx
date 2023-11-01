@@ -7,13 +7,12 @@ type HomeProps = {
   navigation: HomeScreenNavigationProp;
 };
 
-
 const Home: React.FC<HomeProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <View style={styles.tabContainer}>
-        <HomeTopTabNavigator />
-      </View>
+        <View style={styles.tabContainer}>
+          <HomeTopTabNavigator />
+        </View>
     </View>
   );
 };
@@ -25,7 +24,6 @@ const styles = StyleSheet.create({
   },
   tabContainer: {
     flex: 1,
-    marginTop: 10,
     backgroundColor: 'white'
   },
 });

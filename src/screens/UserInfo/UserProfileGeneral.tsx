@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { NavigationProp, RouteProp } from '@react-navigation/native';
+import { RouteProp } from '@react-navigation/native';
 import { FollowersScreenNavigationProp, FollowersStackParamList, FollowingScreenNavigationProp, FollowingStackParamList } from '../../utilities/types';
+import UserContext from '../../utilities/UserContext';
 
 type UserProfileGeneralProps = {
   navigation: FollowingScreenNavigationProp | FollowersScreenNavigationProp;
@@ -9,6 +10,8 @@ type UserProfileGeneralProps = {
 };
 
 const UserProfileGeneral: React.FC<UserProfileGeneralProps> = ({ route }) => {
+  const { dimensions } = useContext(UserContext);
+  const styles = getStyles(dimensions);
   const { user } = route.params;
 
   if (!user) {
@@ -22,24 +25,35 @@ const UserProfileGeneral: React.FC<UserProfileGeneralProps> = ({ route }) => {
   return (
     <View style={styles.container}>
       <Image source={user.image} style={styles.userImage} />
-      <Text>{user.name}</Text>
-      <Text>{user.description}</Text>
+      <Text style={styles.userName}>{user.name}</Text>
+      <Text style={styles.bio}>{user.description}</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const getStyles = (dimensions: {width: number; height: number}) => {
+  return StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
       },
-      userImage: {
-        width: 100,
-        height: 100,
-        borderRadius: 50,
-        marginBottom: 10,
+      userName: {
+        fontSize: dimensions.width * 0.048,
+        fontWeight: 'bold',
+        padding: dimensions.width * 0.05,
       },
-});
+      bio: {
+        fontSize: dimensions.width * 0.045,
+      },
+      userImage: {
+        width: dimensions.width * 0.2666,
+        height: dimensions.width * 0.2666,
+        borderRadius: dimensions.width * 0.1333,
+        marginBottom: dimensions.width * 0.01333,
+      },
+  });
+};
+
 
 export default UserProfileGeneral;

@@ -17,9 +17,8 @@ interface Props {
 
 const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source, username }) => {
     const { dimensions } = useContext(UserContext);
-    const [numColumns, setNumColumns] = useState(dimensions.width > 600 ? 3 : 2);
     const styles = getStyles(dimensions);
-    
+    const [numColumns, setNumColumns] = useState(dimensions.width > 600 ? 3 : 2);
 
     let dataSource: Record<string, UserPost>;
     switch (source) {
@@ -58,7 +57,7 @@ const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source, username
             >
                 <View style={styles.header}>
                     <Image source={item.userAvatar} style={styles.avatar} />
-                    <Text>{displayedName}</Text>
+                    <Text style={styles.userName}>{displayedName}</Text>
                 </View>
                 <Image source={item.image} style={styles.postImage} />
                 <Text style={styles.caption}>{item.caption}</Text>
@@ -79,38 +78,44 @@ const UserPostThumbnail: React.FC<Props> = ({ data, navigation, source, username
     );
 };
 
-const getStyles = (dimensions: { width: any; height?: number; }) => StyleSheet.create({
-    postContainer: {
-        margin: dimensions.width * 0.0133,
-        flex: 1 / 2,
-        padding: dimensions.width * 0.0133,
-        borderColor: '#000000',
-        borderWidth: dimensions.width * 0.00267,
-    },
-    header: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        padding: dimensions.width * 0.0267,
-    },
-    avatar: {
-        width: dimensions.width * 0.1067,
-        height: dimensions.width * 0.1067,
-        borderRadius: dimensions.width * 0.0533,
-        marginRight: dimensions.width * 0.0267,
-    },
-    postImage: {
-        width: "100%",
-        height: dimensions.width * 0.66666,
-        resizeMode: 'cover',
-        marginBottom: dimensions.width * 0.0133,
-        borderColor: '#000000',
-        borderWidth: dimensions.width * 0.00267,
-    },
-    caption: {
-        fontSize: dimensions.width * 0.04,
-        margin: dimensions.width * 0.0133,
-    },
-});
+const getStyles = (dimensions: { width: any; height: number; }) => {
+    return StyleSheet.create({
+        postContainer: {
+            margin: dimensions.width * 0.0133,
+            flex: 1 / 2,
+            padding: dimensions.width * 0.0133,
+            borderColor: '#000000',
+            borderWidth: dimensions.width * 0.00267,
+        },
+        userName: {
+            fontSize: dimensions.width * 0.043,
+            fontWeight: 'bold',
+        },
+        header: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            padding: dimensions.width * 0.0267,
+        },
+        avatar: {
+            width: dimensions.width * 0.1067,
+            height: dimensions.width * 0.1067,
+            borderRadius: dimensions.width * 0.0533,
+            marginRight: dimensions.width * 0.0267,
+        },
+        postImage: {
+            width: "100%",
+            height: dimensions.width * 0.66666,
+            resizeMode: 'cover',
+            marginBottom: dimensions.width * 0.0133,
+            borderColor: '#000000',
+            borderWidth: dimensions.width * 0.00267,
+        },
+        caption: {
+            fontSize: dimensions.width * 0.04,
+            margin: dimensions.width * 0.0133,
+        },
+    });
+};
 
 const mapStateToProps = (state: RootState) => ({
     username: state.profile.username,

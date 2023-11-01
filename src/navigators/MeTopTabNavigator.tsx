@@ -3,10 +3,14 @@ import Posts from '../screens/MeTopBarScreens/Posts';
 import TagComponent from '../screens/MeTopBarScreens/Tag';
 import CollectsComponent from '../screens/MeTopBarScreens/Collects';
 import LikesComponent from '../screens/MeTopBarScreens/Likes';
+import UserContext from '../utilities/UserContext';
+import { useContext } from 'react';
 
 const MeTopTab = createMaterialTopTabNavigator();
 
 const MeTopTabNavigator: React.FC = () => {
+  const { dimensions } = useContext(UserContext);
+
   return (
     <MeTopTab.Navigator
       initialRouteName="Posts"
@@ -15,22 +19,23 @@ const MeTopTabNavigator: React.FC = () => {
         tabBarInactiveTintColor: 'black',
         tabBarStyle: {
           backgroundColor: 'white',
-          height: 42,
+          height: dimensions.width * 0.112,
           elevation: 0,
           shadowOpacity: 0,
-          borderTopLeftRadius: 10,
-          borderTopRightRadius: 10,
+          borderTopLeftRadius: dimensions.width * 0.026666,
+          borderTopRightRadius: dimensions.width * 0.026666,
         },
         tabBarIndicatorStyle: {
           backgroundColor: 'red',
-          height: 4,
+          height: dimensions.width * 0.008,
           width: '10%',
-          left: '7.7%',
+          left: '7.5%',
           alignSelf: 'center',
+          marginBottom: dimensions.width * 0.018666,
         },
         tabBarLabelStyle: {
           fontWeight: 'bold',
-          fontSize: 12,
+          fontSize: dimensions.width * 0.032,
           textAlignVertical: 'center',
         },
         tabBarAllowFontScaling: false,

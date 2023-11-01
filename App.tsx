@@ -12,6 +12,7 @@ import { Provider } from 'react-redux';
 
 const App: React.FC = () => {
   const dimensions = useWindowDimensions();
+  console.log(dimensions);
   const [userCount, setUserCount] = useState(0);
   const [followersCount, setFollowersCount] = useState(0);
 

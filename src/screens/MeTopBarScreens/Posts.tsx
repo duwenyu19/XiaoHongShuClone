@@ -10,23 +10,10 @@ type PostProps = {
 
 const Post: React.FC<PostProps> = ({navigation}) => {
   return (
-    <View style={styles.container}>
+    <View style={{flex: 1, backgroundColor: '#FFFFFF'}}>
       <UserPostThumbnail data={usersDataPostMe} source={'me'} navigation={navigation}/>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: 'white'
-    },
-    heading: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      margin: 20,
-      textAlign: 'center'
-    }
-});
 
 export default Post;

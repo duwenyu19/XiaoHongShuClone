@@ -10,23 +10,10 @@ type FollowProps = {
 
 const Follow: React.FC<FollowProps> = ({navigation}) => {
   return (
-    <View style={styles.container}>
+    <View style={{flex: 1, backgroundColor: '#FFFFFF'}}>
       <UserPostThumbnail data={usersDataPostFollowing} source={'following'} navigation={navigation}/>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: 'white'
-    },
-    heading: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      margin: 20,
-      textAlign: 'center'
-    },
-});
 
 export default Follow;

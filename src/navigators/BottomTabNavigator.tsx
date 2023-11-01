@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeStack from './HomeNavigator';
 import MeStack from './MeNavigator';
 import meIcon from '../assets/photos/user-icon.png';
 import homeIcon from '../assets/photos/home-icon.png';
+import UserContext from '../utilities/UserContext';
 
 
 const BottomTab = createBottomTabNavigator();
 
 const BottomTabNavigator: React.FC = () => {
+  const { dimensions } = useContext(UserContext);
+
   return (
     <BottomTab.Navigator 
       screenOptions={{ 
@@ -18,12 +21,12 @@ const BottomTabNavigator: React.FC = () => {
         tabBarInactiveBackgroundColor: 'transparent',
         tabBarStyle:{
           backgroundColor: '#4A4A4A',
-          paddingTop: 3,
-          paddingBottom: 3,
+          paddingTop: dimensions.width * 0.02,
+          paddingBottom: dimensions.width * 0.035,
         },
         tabBarLabelStyle: {
           fontWeight: 'bold',
-          fontSize: 12,
+          fontSize: dimensions.width * 0.038,
         }
       }}
     >
