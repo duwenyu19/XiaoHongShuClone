@@ -9,7 +9,7 @@ import EditProfile from '../screens/MeScreens/EditProfile';
 import Setting from '../screens/MeScreens/Setting';
 import FollwoingNavigator from './FollowingNavigator';
 import FollowersNavigator from './FollowersNavigator';
-import UserPostGeneral from '../screens/UserInfo/UserPostGeneral';
+import UserPostGeneral from '../components/UserPostGeneral';
 import { MeStackParamList } from '../utilities/types';
 
 const MeStack = createStackNavigator<MeStackParamList>();

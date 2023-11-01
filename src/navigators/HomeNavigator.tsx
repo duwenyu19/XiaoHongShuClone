@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import UserPostGeneral from '../screens/UserInfo/UserPostGeneral';
+import UserPostGeneral from '../components/UserPostGeneral';
 import { HomeStackParamList } from '../utilities/types';
 import HomeTobTabNavigator from './HomeTopTabNavigator';
 

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
-import { FollowersScreenNavigationProp, FollowersStackParamList, FollowingScreenNavigationProp, FollowingStackParamList } from '../../utilities/types';
-import UserContext from '../../utilities/UserContext';
+import { FollowersScreenNavigationProp, FollowersStackParamList, FollowingScreenNavigationProp, FollowingStackParamList } from '../utilities/types';
+import UserContext from '../utilities/UserContext';
 
 type UserProfileGeneralProps = {
   navigation: FollowingScreenNavigationProp | FollowersScreenNavigationProp;

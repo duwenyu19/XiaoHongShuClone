@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
-import { HomeStackParamList, UserPost } from '../../utilities/types';
-import { usersDataPostExplore } from '../../utilities/usersDataPostExplore';
-import { usersDataPostFollowing } from '../../utilities/usersDataPostFollowing';
-import { usersDataPostMe } from '../../utilities/usersDataPostMe';
-import UserContext from '../../utilities/UserContext';
+import { HomeStackParamList, UserPost } from '../utilities/types';
+import { usersDataPostExplore } from '../utilities/usersDataPostExplore';
+import { usersDataPostFollowing } from '../utilities/usersDataPostFollowing';
+import { usersDataPostMe } from '../utilities/usersDataPostMe';
+import UserContext from '../utilities/UserContext';
 
 type UserPostGeneralProps = {
     route: RouteProp<HomeStackParamList, 'UserPostGeneral'>;
